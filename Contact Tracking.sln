@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact Tracking", "Contact Tracking\Contact Tracking.csproj", "{7E563527-0E20-42A6-B5A5-CC24052F34B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact Tracking", "Contact Tracking\Contact Tracking.csproj", "{06856124-1A08-4B84-84DA-0B08A2F48F00}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{830A540A-70C1-476D-98E1-8012DE4F44B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7E563527-0E20-42A6-B5A5-CC24052F34B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E563527-0E20-42A6-B5A5-CC24052F34B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E563527-0E20-42A6-B5A5-CC24052F34B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E563527-0E20-42A6-B5A5-CC24052F34B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06856124-1A08-4B84-84DA-0B08A2F48F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06856124-1A08-4B84-84DA-0B08A2F48F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06856124-1A08-4B84-84DA-0B08A2F48F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06856124-1A08-4B84-84DA-0B08A2F48F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830A540A-70C1-476D-98E1-8012DE4F44B3}.Debug|Any CPU.ActiveCfg = Release
+		{830A540A-70C1-476D-98E1-8012DE4F44B3}.Debug|Any CPU.Build.0 = Release
+		{830A540A-70C1-476D-98E1-8012DE4F44B3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BD4487E1-2507-49D9-893F-A2BCBF7B1631}
+		SolutionGuid = {E97241DB-2388-40D1-8324-E274823B5793}
 	EndGlobalSection
 EndGlobal
