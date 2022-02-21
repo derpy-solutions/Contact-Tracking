@@ -6,7 +6,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DataPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">"F:\derpy_Developments\Contact Tracking\Data\data.db"</Value>
+      <Value Profile="(Default)">F:\derpy_Developments\Contact Tracking\Data\</Value>
     </Setting>
     <Setting Name="Size" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">1250, 600</Value>
@@ -36,10 +36,13 @@
       <Value Profile="(Default)">MySecretKey</Value>
     </Setting>
     <Setting Name="SecurityKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">MyVeryComplexKey1234</Value>
+      <Value Profile="(Default)">b14ca5898a4e4133bbce2ea2315a1916</Value>
     </Setting>
     <Setting Name="MaxVisits" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">36</Value>
+    </Setting>
+    <Setting Name="MySetting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">abcd</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -95,7 +95,7 @@ namespace Contact_Tracking
         public string QRData {
             get
             {
-                return $"{ID}|{FirstName}|{LastName}|{Sex}|{DateOfBirth}|{Address}|{Phone}|{EMail}";
+                return $"{ID}|{FirstName}|{LastName}|{DateOfBirth}|{Sex}|{Address}|{Phone}|{EMail}|{MigrationBackground}";
             }
         }
         public string FileName {
@@ -127,7 +127,8 @@ namespace Contact_Tracking
                 {
                     G.CurrentStat = new Stat();
                     G.CurrentStat.ID = G.LastStatID;
-                    G.CurrentStat.Date = DateTime.Now;
+                    G.CurrentStat.Date = DateTime.FromOADate(Math.Floor(DateTime.Now.ToOADate()));
+                    Console.WriteLine("Adding Default Stat. Date: " + G.CurrentStat.Date.ToString("d"));
                     G.CurrentStat.Add();
                 }
 
@@ -208,9 +209,9 @@ namespace Contact_Tracking
 
                 if (statAdded && statAdded != _statAdded)
                 {
-                    Console.WriteLine("Added " + FullName + " to our stats.");
                     _statAdded = statAdded;
                     SQL.UpdateStat(G.CurrentStat);
+                    MyControls.Stats.RefreshStats(G.CurrentStat);
                 }
             }
         }
@@ -304,9 +305,9 @@ namespace Contact_Tracking
 
                     if (!statAdded && _statAdded != statAdded)
                     {
-                        Console.WriteLine("Removed " + FullName + " from our stats.");
                         _statAdded = statAdded;
                         SQL.UpdateStat(G.CurrentStat);
+                        MyControls.Stats.RefreshStats(G.CurrentStat);
                     }
                 }
             }
@@ -432,7 +433,7 @@ namespace Contact_Tracking
             {
                 if (G.Years(date, DateTime.Now) < 13)
                 {
-                    Console.WriteLine("Young enough! Only " + G.Years(date, DateTime.Now) + " years!");
+                    //Console.WriteLine("Young enough! Only " + G.Years(date, DateTime.Now) + " years!");
                     return true;
                 }
             }
@@ -441,7 +442,7 @@ namespace Contact_Tracking
             {
                 if (DateTime.Now.Subtract(date).TotalHours < 48)
                 {
-                    Console.WriteLine("Last Test less than 48 hours! Only " + DateTime.Now.Subtract(date).TotalHours + " hours passed!");
+                   // Console.WriteLine("Last Test less than 48 hours! Only " + DateTime.Now.Subtract(date).TotalHours + " hours passed!");
                     return true;
                 }                
             }
@@ -450,7 +451,7 @@ namespace Contact_Tracking
             {
                 if (DateTime.Now.Subtract(date).TotalDays < 90)
                 {
-                    Console.WriteLine("Vaccinated less than 90 days ago! Only " + DateTime.Now.Subtract(date).TotalDays + " days passed!");
+                   // Console.WriteLine("Vaccinated less than 90 days ago! Only " + DateTime.Now.Subtract(date).TotalDays + " days passed!");
                     return true;
                 }
             }

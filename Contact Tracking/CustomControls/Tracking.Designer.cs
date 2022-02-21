@@ -29,8 +29,6 @@ namespace Contact_Tracking.Custom_Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrackingTab));
             this.FilterBox = new System.Windows.Forms.TextBox();
             this.QR_Button = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -38,15 +36,14 @@ namespace Contact_Tracking.Custom_Controls
             this.DateLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Count_Label = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.PersonList = new System.Windows.Forms.FlowLayoutPanel();
-            this.qrCodeReader = new Contact_Tracking.Custom_Controls.QRCodeReader();
-            this.rightClick_Menu = new Contact_Tracking.Custom_Controls.RightClick_Menu();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.qrCodeReader = new Contact_Tracking.Custom_Controls.QRCodeReader();
+            this.rightClick_Menu = new Contact_Tracking.Custom_Controls.RightClick_Menu();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -114,7 +111,7 @@ namespace Contact_Tracking.Custom_Controls
             // 
             this.DateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DateLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DateLabel.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.DateLabel.ForeColor = System.Drawing.Color.White;
             this.DateLabel.Location = new System.Drawing.Point(114, 0);
             this.DateLabel.Margin = new System.Windows.Forms.Padding(0);
@@ -128,7 +125,7 @@ namespace Contact_Tracking.Custom_Controls
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(457, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
@@ -142,7 +139,7 @@ namespace Contact_Tracking.Custom_Controls
             // 
             this.Count_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Count_Label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Count_Label.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.Count_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Count_Label.Location = new System.Drawing.Point(0, 0);
             this.Count_Label.Margin = new System.Windows.Forms.Padding(0);
@@ -151,14 +148,6 @@ namespace Contact_Tracking.Custom_Controls
             this.Count_Label.TabIndex = 8;
             this.Count_Label.Text = "0/36";
             this.Count_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "");
-            this.imageList1.Images.SetKeyName(1, "");
             // 
             // PersonList
             // 
@@ -173,32 +162,6 @@ namespace Contact_Tracking.Custom_Controls
             this.PersonList.TabIndex = 11;
             this.PersonList.Layout += new System.Windows.Forms.LayoutEventHandler(this.PersonList_Layout);
             this.PersonList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PersonList_MouseDown);
-            // 
-            // qrCodeReader
-            // 
-            this.qrCodeReader.BackColor = System.Drawing.Color.Transparent;
-            this.qrCodeReader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.qrCodeReader.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.qrCodeReader.ForeColor = System.Drawing.Color.White;
-            this.qrCodeReader.Location = new System.Drawing.Point(967, 0);
-            this.qrCodeReader.Margin = new System.Windows.Forms.Padding(4);
-            this.qrCodeReader.Name = "qrCodeReader";
-            this.qrCodeReader.Size = new System.Drawing.Size(312, 347);
-            this.qrCodeReader.TabIndex = 18;
-            this.qrCodeReader.Visible = false;
-            // 
-            // rightClick_Menu
-            // 
-            this.rightClick_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.rightClick_Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rightClick_Menu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rightClick_Menu.ForeColor = System.Drawing.Color.White;
-            this.rightClick_Menu.Location = new System.Drawing.Point(753, 0);
-            this.rightClick_Menu.Margin = new System.Windows.Forms.Padding(4);
-            this.rightClick_Menu.Name = "rightClick_Menu";
-            this.rightClick_Menu.Size = new System.Drawing.Size(206, 146);
-            this.rightClick_Menu.TabIndex = 19;
-            this.rightClick_Menu.Visible = false;
             // 
             // tableLayoutPanel1
             // 
@@ -267,13 +230,39 @@ namespace Contact_Tracking.Custom_Controls
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(4, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(235, 30);
             this.label1.TabIndex = 21;
             this.label1.Text = "Besuchererfassung";
+            // 
+            // qrCodeReader
+            // 
+            this.qrCodeReader.BackColor = System.Drawing.Color.Transparent;
+            this.qrCodeReader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.qrCodeReader.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.qrCodeReader.ForeColor = System.Drawing.Color.White;
+            this.qrCodeReader.Location = new System.Drawing.Point(967, 0);
+            this.qrCodeReader.Margin = new System.Windows.Forms.Padding(4);
+            this.qrCodeReader.Name = "qrCodeReader";
+            this.qrCodeReader.Size = new System.Drawing.Size(312, 347);
+            this.qrCodeReader.TabIndex = 18;
+            this.qrCodeReader.Visible = false;
+            // 
+            // rightClick_Menu
+            // 
+            this.rightClick_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.rightClick_Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rightClick_Menu.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.rightClick_Menu.ForeColor = System.Drawing.Color.White;
+            this.rightClick_Menu.Location = new System.Drawing.Point(753, 0);
+            this.rightClick_Menu.Margin = new System.Windows.Forms.Padding(4);
+            this.rightClick_Menu.Name = "rightClick_Menu";
+            this.rightClick_Menu.Size = new System.Drawing.Size(206, 146);
+            this.rightClick_Menu.TabIndex = 19;
+            this.rightClick_Menu.Visible = false;
             // 
             // TrackingTab
             // 
@@ -284,7 +273,7 @@ namespace Contact_Tracking.Custom_Controls
             this.Controls.Add(this.rightClick_Menu);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "TrackingTab";
             this.Size = new System.Drawing.Size(1283, 794);
@@ -308,7 +297,6 @@ namespace Contact_Tracking.Custom_Controls
         public System.Windows.Forms.Label DateLabel;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label Count_Label;
-        public System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.FlowLayoutPanel PersonList;
         public QRCodeReader qrCodeReader;
         public RightClick_Menu rightClick_Menu;

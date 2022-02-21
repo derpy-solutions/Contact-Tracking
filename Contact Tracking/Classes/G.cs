@@ -19,7 +19,7 @@ namespace Contact_Tracking
     public class G
     {
         public static int LastID = 1;
-        public static int LastStatID = 1;
+        public static int LastStatID = 0;
         public static List<Person> People = new List<Person>();
         public static List<Stat> Stats = new List<Stat>();
         public static Stat CurrentStat;
@@ -30,8 +30,6 @@ namespace Contact_Tracking
                 (((end.Month > start.Month) ||
                 ((end.Month == start.Month) && (end.Day >= start.Day))) ? 1 : 0);
         }
-
-
 
 
         public static bool ProcessExists(int id)

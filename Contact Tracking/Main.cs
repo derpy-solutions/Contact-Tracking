@@ -10,12 +10,14 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Reflection;
 using System.Drawing;
+using System.Globalization;
 
 namespace Contact_Tracking
 {
     public partial class Main : Form
     {
         public static System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Contact_Tracking.de_local", Assembly.GetExecutingAssembly());
+        //public static CultureInfo culture = new CultureInfo("en-US");
 
         public static bool initialized;
         public Main()
@@ -23,20 +25,13 @@ namespace Contact_Tracking
             switch (Properties.Settings.Default.Language)
             {
                 case "EN":
-                    rm = new System.Resources.ResourceManager("Contact_Tracking.en_local", Assembly.GetExecutingAssembly());
+                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
                     break;
 
                 case "DE":
-                    rm = new System.Resources.ResourceManager("Contact_Tracking.de_local", Assembly.GetExecutingAssembly());
+                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("de-DE");
                     break;
             }
-            Console.WriteLine("Creative: " + rm.GetString("Creative"));
-
-#if DEBUG
-            Console.WriteLine("DEBUG");
-#else
-                Console.WriteLine("RELEASE");
-#endif
 
             Console.WriteLine("Main Tick - Init");
 
@@ -46,6 +41,7 @@ namespace Contact_Tracking
                 Properties.Settings.Default.DataPath = @"C:\Program Files\derpy Solutions\Minecraft Server Manager\Data";
                 Properties.Settings.Default.Save();
             }
+
             Directory.CreateDirectory(Properties.Settings.Default.ServerPath);
             Directory.CreateDirectory(Properties.Settings.Default.DataPath);
 
@@ -55,6 +51,7 @@ namespace Contact_Tracking
             MyControls.SideBar = SideBar;
             MyControls.TrackingTab = tracking;
             MyControls.PersonTab = personCard;
+            MyControls.Stats = statistics_Tab;
 
 
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -73,6 +70,8 @@ namespace Contact_Tracking
                 action();
             }
 
+            Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Bold.ttf");
+
             if (!Fonts.IsFontInstalled("Century Gothic"))
             {
                 Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Bold.ttf");
@@ -85,7 +84,6 @@ namespace Contact_Tracking
 
             Initialize();
             initialized = true;
-            Properties.Settings.Default.SecurityKey = "MyComplexKey";
             SQL.Run();
         }
 

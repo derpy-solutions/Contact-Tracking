@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Contact Tracking": {
-      "commandName": "Project",
-      "nativeDebugging": false
-    }
-  }
-}

@@ -21,11 +21,12 @@ namespace Contact_Tracking
 
         public static void InstallFont(string fontSourcePath)
         {
-            var shellAppType = Type.GetTypeFromProgID("Shell.Application");
-            var shell = Activator.CreateInstance(shellAppType);
-            var fontFolder = (Shell32.Folder)shellAppType.InvokeMember("NameSpace", System.Reflection.BindingFlags.InvokeMethod, null, shell, new object[] { Environment.GetFolderPath(Environment.SpecialFolder.Fonts) });
+            //var shellAppType = Type.GetTypeFromProgID("Shell.Application");
+            //var shell = Activator.CreateInstance(shellAppType);
+            //var fontFolder = (Shell32.Folder)shellAppType.InvokeMember("NameSpace", System.Reflection.BindingFlags.InvokeMethod, null, shell, new object[] { Environment.GetFolderPath(Environment.SpecialFolder.Fonts) });
+            var fontFolder = Environment.SpecialFolder.Fonts;
             if (File.Exists(fontSourcePath))
-                fontFolder.CopyHere(fontSourcePath);
+                File.Copy(fontSourcePath, fontFolder + Path.GetFileName(fontSourcePath), true);
         }
 
         public static string fallBackFont = "Arial";

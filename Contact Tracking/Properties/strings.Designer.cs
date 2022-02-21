@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Contact_Tracking {
+namespace Contact_Tracking.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Contact_Tracking {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class en_local {
+    internal class strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal en_local() {
+        internal strings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Contact_Tracking {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Contact_Tracking.en_local", typeof(en_local).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Contact_Tracking.Properties.strings", typeof(strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,42 +61,6 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adventure.
-        /// </summary>
-        internal static string Adventure {
-            get {
-                return ResourceManager.GetString("Adventure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cancel.
-        /// </summary>
-        internal static string Cancel {
-            get {
-                return ResourceManager.GetString("Cancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Command.
-        /// </summary>
-        internal static string Command {
-            get {
-                return ResourceManager.GetString("Command", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Creative.
-        /// </summary>
-        internal static string Creative {
-            get {
-                return ResourceManager.GetString("Creative", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Current.
         /// </summary>
         internal static string Current {
@@ -106,11 +70,11 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Server.
+        ///   Looks up a localized string similar to divers.
         /// </summary>
-        internal static string DeleteServer {
+        internal static string divers {
             get {
-                return ResourceManager.GetString("DeleteServer", resourceCulture);
+                return ResourceManager.GetString("divers", resourceCulture);
             }
         }
         
@@ -126,20 +90,20 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Favorite.
+        ///   Looks up a localized string similar to Export.
         /// </summary>
-        internal static string Favorite {
+        internal static string Export {
             get {
-                return ResourceManager.GetString("Favorite", resourceCulture);
+                return ResourceManager.GetString("Export", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Favorites.
+        ///   Looks up a localized string similar to female.
         /// </summary>
-        internal static string Favorites {
+        internal static string female {
             get {
-                return ResourceManager.GetString("Favorites", resourceCulture);
+                return ResourceManager.GetString("female", resourceCulture);
             }
         }
         
@@ -164,20 +128,20 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kick.
-        /// </summary>
-        internal static string Kick {
-            get {
-                return ResourceManager.GetString("Kick", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to male.
+        /// </summary>
+        internal static string male {
+            get {
+                return ResourceManager.GetString("male", resourceCulture);
             }
         }
         
@@ -191,11 +155,11 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mode.
+        ///   Looks up a localized string similar to migration background.
         /// </summary>
-        internal static string Mode {
+        internal static string migration_background {
             get {
-                return ResourceManager.GetString("Mode", resourceCulture);
+                return ResourceManager.GetString("migration_background", resourceCulture);
             }
         }
         
@@ -236,29 +200,11 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to of the server..
-        /// </summary>
-        internal static string of_the_server {
-            get {
-                return ResourceManager.GetString("of_the_server", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Path.
         /// </summary>
         internal static string Path {
             get {
                 return ResourceManager.GetString("Path", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Player.
-        /// </summary>
-        internal static string Player {
-            get {
-                return ResourceManager.GetString("Player", resourceCulture);
             }
         }
         
@@ -292,15 +238,6 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run.
-        /// </summary>
-        internal static string Run {
-            get {
-                return ResourceManager.GetString("Run", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string Save {
@@ -324,69 +261,6 @@ namespace Contact_Tracking {
         internal static string SearchForUpdates {
             get {
                 return ResourceManager.GetString("SearchForUpdates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server.
-        /// </summary>
-        internal static string Server {
-            get {
-                return ResourceManager.GetString("Server", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server loading ....
-        /// </summary>
-        internal static string Server_Loading {
-            get {
-                return ResourceManager.GetString("Server_Loading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Online at.
-        /// </summary>
-        internal static string Server_Online {
-            get {
-                return ResourceManager.GetString("Server_Online", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server shutting down ....
-        /// </summary>
-        internal static string Server_Shutdown {
-            get {
-                return ResourceManager.GetString("Server_Shutdown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server started ....
-        /// </summary>
-        internal static string Server_Started {
-            get {
-                return ResourceManager.GetString("Server_Started", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Servers.
-        /// </summary>
-        internal static string Servers {
-            get {
-                return ResourceManager.GetString("Servers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set gamemode of.
-        /// </summary>
-        internal static string Set_GameMode {
-            get {
-                return ResourceManager.GetString("Set_GameMode", resourceCulture);
             }
         }
         
@@ -420,65 +294,11 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Java Server UI.
-        /// </summary>
-        internal static string ShowUI {
-            get {
-                return ResourceManager.GetString("ShowUI", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Spectator.
-        /// </summary>
-        internal static string Spectator {
-            get {
-                return ResourceManager.GetString("Spectator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Start.
-        /// </summary>
-        internal static string Start {
-            get {
-                return ResourceManager.GetString("Start", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Survival.
-        /// </summary>
-        internal static string Survival {
-            get {
-                return ResourceManager.GetString("Survival", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Teleport.
-        /// </summary>
-        internal static string Teleport {
-            get {
-                return ResourceManager.GetString("Teleport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to to.
         /// </summary>
         internal static string to {
             get {
                 return ResourceManager.GetString("to", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to to.
-        /// </summary>
-        internal static string to_Player {
-            get {
-                return ResourceManager.GetString("to_Player", resourceCulture);
             }
         }
         
@@ -501,29 +321,11 @@ namespace Contact_Tracking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The command which will be used to start your java servers..
-        /// </summary>
-        internal static string ttp_CMD {
-            get {
-                return ResourceManager.GetString("ttp_CMD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The Folder your Data for the application is stored in..
         /// </summary>
         internal static string ttp_DataPath {
             get {
                 return ResourceManager.GetString("ttp_DataPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The path to the &apos;java.exe&apos; which should be used to start the servers..
-        /// </summary>
-        internal static string ttp_JavaPath {
-            get {
-                return ResourceManager.GetString("ttp_JavaPath", resourceCulture);
             }
         }
         
@@ -551,33 +353,6 @@ namespace Contact_Tracking {
         internal static string ttp_Reset {
             get {
                 return ResourceManager.GetString("ttp_Reset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Run the selected command on the server..
-        /// </summary>
-        internal static string ttp_Run {
-            get {
-                return ResourceManager.GetString("ttp_Run", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Folder your Servers are placed in..
-        /// </summary>
-        internal static string ttp_ServerPath {
-            get {
-                return ResourceManager.GetString("ttp_ServerPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Start the selected Server..
-        /// </summary>
-        internal static string ttp_Start {
-            get {
-                return ResourceManager.GetString("ttp_Start", resourceCulture);
             }
         }
         
@@ -618,6 +393,15 @@ namespace Contact_Tracking {
         internal static string UpdatePopUp {
             get {
                 return ResourceManager.GetString("UpdatePopUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visitor Stats.
+        /// </summary>
+        internal static string VisitorStats {
+            get {
+                return ResourceManager.GetString("VisitorStats", resourceCulture);
             }
         }
         

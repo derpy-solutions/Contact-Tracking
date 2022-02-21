@@ -34,22 +34,22 @@ namespace Contact_Tracking
 
                     if (Properties.Settings.Default.ShowTooltips)
                     {
-                        MyControls.Main.toolTip1.SetToolTip(MyControls.SideBar.UpdateNotification, Main.rm.GetString("ttp_UpdateAvailable"));
+                        MyControls.Main.toolTip1.SetToolTip(MyControls.SideBar.UpdateNotification, Properties.strings.ttp_UpdateAvailable);
                     }
                     Console.WriteLine("UPDATE?!");
                     Console.WriteLine("Dismiss Update: " + dismissUpdate);
 
                     if (File.Exists(Properties.Settings.Default.DataPath + @"\" + G.Ver.newest.ToString() + " Contact.Tracking..Setup.msi"))
                     {
-                        MyControls.SideBar.UpdateButton.Text = "         " + Main.rm.GetString("Install") + " Update";
+                        MyControls.SideBar.UpdateButton.Text = "         " + Properties.strings.Install + " Update";
                         MyControls.SideBar.UpdateButton.Image = Properties.Resources.unbox;
 
                         if (!dismissUpdate)
                         {
                             MyControls.Main.restartPopUp.type = "Install";
-                            MyControls.Main.restartPopUp.Content.Text = Main.rm.GetString("UpdateInstall");
-                            MyControls.Main.restartPopUp.Restart.Text = Main.rm.GetString("Yes");
-                            MyControls.Main.restartPopUp.NoRestart.Text = Main.rm.GetString("No");
+                            MyControls.Main.restartPopUp.Content.Text = Properties.strings.UpdateInstall;
+                            MyControls.Main.restartPopUp.Restart.Text = Properties.strings.Yes;
+                            MyControls.Main.restartPopUp.NoRestart.Text = Properties.strings.No;
                             MyControls.Main.restartPopUp.Show();
                         }
                     }
@@ -58,9 +58,9 @@ namespace Contact_Tracking
                         if (!dismissUpdate)
                         {
                             MyControls.Main.restartPopUp.type = "Download";
-                            MyControls.Main.restartPopUp.Content.Text = Main.rm.GetString("UpdatePopUp");
-                            MyControls.Main.restartPopUp.Restart.Text = Main.rm.GetString("Yes");
-                            MyControls.Main.restartPopUp.NoRestart.Text = Main.rm.GetString("No");
+                            MyControls.Main.restartPopUp.Content.Text = Properties.strings.UpdatePopUp;
+                            MyControls.Main.restartPopUp.Restart.Text = Properties.strings.Yes;
+                            MyControls.Main.restartPopUp.NoRestart.Text = Properties.strings.No;
                             MyControls.Main.restartPopUp.Show();
                         }
                     }
@@ -77,7 +77,7 @@ namespace Contact_Tracking
 
                         if (Properties.Settings.Default.ShowTooltips)
                         {
-                            MyControls.Main.toolTip1.SetToolTip(MyControls.SideBar.UpdateNotification, Main.rm.GetString("ttp_NoInternet"));
+                            MyControls.Main.toolTip1.SetToolTip(MyControls.SideBar.UpdateNotification, Properties.strings.ttp_NoInternet);
                         }
                     }
 
@@ -161,7 +161,7 @@ namespace Contact_Tracking
         {
             try
             {
-                url ??= "http://google.com/generate_204";
+                url = "http://google.com/generate_204";
 
                 var request = (HttpWebRequest)WebRequest.Create(url);
                 request.KeepAlive = false;
@@ -184,9 +184,9 @@ namespace Contact_Tracking
                 // Added user agent
                 webClient.Headers.Add("User-Agent", "Unity web player");
                 Uri uri = new Uri(string.Format(GITHUB_API, username, repoName));
-                string releases = webClient.DownloadString(uri);
+                string current_releases = webClient.DownloadString(uri);
 
-                return releases;
+                return current_releases;
             }
 
             var str = GetReleases("derpy-solutions", "Contact-Tracking-Manager");

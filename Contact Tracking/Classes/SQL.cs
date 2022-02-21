@@ -97,11 +97,51 @@ namespace Contact_Tracking
                 }
             }
             CreateLogsTable();
-            CreateStatsTable();
+            if (CreateStatsTable())
+            {
+                Random rnd = new Random();
+
+                for (int i = 1; i < 30; i ++)
+                {
+                    Stat stat = new Stat();
+                    stat.ID = i;
+                    stat.Date = DateTime.FromOADate(DateTime.Now.AddDays(i - 1).ToOADate());
+                    stat.Age_6_12.female = rnd.Next(0, 15);
+                    stat.Age_6_12.male = rnd.Next(0, 15);
+                    stat.Age_6_12.divers = rnd.Next(0, 5);
+                    var total = (stat.Age_6_12.female + stat.Age_6_12.male + stat.Age_6_12.divers);
+                    stat.Age_6_12.migration_background = rnd.Next(Convert.ToInt32(total*0.25), total);
+
+                    stat.Age_13_17.female = rnd.Next(0, 15);
+                    stat.Age_13_17.male = rnd.Next(0, 15);
+                    stat.Age_13_17.divers = rnd.Next(0, 5);
+                    var total2 = (stat.Age_13_17.female + stat.Age_13_17.male + stat.Age_13_17.divers);
+                    stat.Age_13_17.migration_background = rnd.Next(Convert.ToInt32(total2*0.25), total2);
+
+                    stat.Age_18_27.female = rnd.Next(0, 15);
+                    stat.Age_18_27.male = rnd.Next(0, 15);
+                    stat.Age_18_27.divers = rnd.Next(0, 5);
+                    var total3 = (stat.Age_18_27.female + stat.Age_18_27.male + stat.Age_18_27.divers);
+                    stat.Age_18_27.migration_background = rnd.Next(Convert.ToInt32(total3*0.25), total3);
+
+                    stat.Add();
+                }
+            }
 
             ReadTable();
-            ReadLog();
             ReadStats();
+            ReadLog();
+
+            if (G.CurrentStat == null || G.CurrentStat.Date == null || G.CurrentStat.Date.ToString("d") != DateTime.Now.ToString("d") )
+            {
+                G.LastStatID++;
+
+                G.CurrentStat = new Stat();
+                G.CurrentStat.Date = DateTime.FromOADate(DateTime.Now.ToOADate());
+                Console.WriteLine("Adding Default Stat in SQL Load. Date: " + G.CurrentStat.Date.ToString("d") + " with ID: "+ G.LastStatID);
+
+                G.CurrentStat.ID = G.LastStatID;
+            }
         }
         public static string LogName()
         {
@@ -120,7 +160,6 @@ namespace Contact_Tracking
         {
             SQLiteCommand existing = new SQLiteCommand($"SELECT count(*) FROM '" + tbl + $"' WHERE ID='{ID}'", connection);
             int count = Convert.ToInt32(existing.ExecuteScalar());
-            Console.WriteLine("Exists Check: " + count);
             return count > 0;
         }
         public static bool TableExists(String tableName, SQLiteConnection connection)
@@ -209,6 +248,8 @@ namespace Contact_Tracking
                     stat.Age_18_27.female = int.Parse(reader["Age_18_27_female"].ToString());
                     stat.Age_18_27.migration_background = int.Parse(reader["Age_18_27_migration_background"].ToString());
 
+
+                    Console.WriteLine("Date: " + stat.Date);
                     stat.Add();
 
                     G.CurrentStat = stat;
@@ -221,11 +262,9 @@ namespace Contact_Tracking
             string dbfile = "URI=file:" + Properties.Settings.Default.DataPath + @"\data.db";
             SQLiteConnection connection = new SQLiteConnection(dbfile);
             connection.Open();
-            Console.WriteLine("Update StatsID: " + StatsID() + "!");
 
-            if (EntryExists(connection, StatsID(), "Statistic"))
+            if (EntryExists(connection, s.ID, "Statistic"))
             {
-                Console.WriteLine("Update Stats!");
                 string Age_6_12 = $"Age_6_12_divers='{s.Age_6_12.divers}', Age_6_12_male='{s.Age_6_12.male}', Age_6_12_female='{s.Age_6_12.female}', Age_6_12_migration_background='{s.Age_6_12.migration_background}'";
                 string Age_13_17 = $"Age_13_17_divers='{s.Age_13_17.divers}', Age_13_17_male='{s.Age_13_17.male}', Age_13_17_female='{s.Age_13_17.female}', Age_13_17_migration_background='{s.Age_13_17.migration_background}'";
                 string Age_18_27 = $"Age_18_27_divers='{s.Age_18_27.divers}', Age_18_27_male='{s.Age_18_27.male}', Age_18_27_female='{s.Age_18_27.female}', Age_18_27_migration_background='{s.Age_18_27.migration_background}'";
@@ -236,7 +275,6 @@ namespace Contact_Tracking
             else
             {
                 G.LastStatID = Math.Max(StatsID(), G.LastStatID);
-                Console.WriteLine("Add Stats!");
                 string Age_18_27 = "Age_18_27_divers, Age_18_27_male, Age_18_27_female, Age_18_27_migration_background";
                 string Age_13_17 = "Age_13_17_divers, Age_13_17_male, Age_13_17_female, Age_13_17_migration_background";
                 string Age_6_12 = "Age_6_12_divers, Age_6_12_male, Age_6_12_female, Age_6_12_migration_background";
@@ -386,7 +424,7 @@ namespace Contact_Tracking
             
             if (EntryExists(connection, p.ID))
             {
-                string updateperson = $"update Person set FirstName='{Encryption.Encrypt(p.FirstName)}', LastName='{Encryption.Encrypt(p.LastName)}', Sex='{Encryption.Encrypt(p.Sex)}', DateOfBirth='{Encryption.Encrypt(p.DateOfBirth)}', MigrationBackground={Encryption.Encrypt(p.MigrationBackground.ToString())}, Address='{Encryption.Encrypt(p.Address)}', Phone='{Encryption.Encrypt(p.Phone)}', EMail='{Encryption.Encrypt(p.EMail)}', Note='{Encryption.Encrypt(p.Note)}', Tested='{Encryption.Encrypt(p.Tested)}', Vaccinated='{Encryption.Encrypt(p.Vaccinated)}', Created='{Encryption.Encrypt(p.Created)}' where id={p.getID};";
+                string updateperson = $"update Person set FirstName='{Encryption.Encrypt(p.FirstName)}', LastName='{Encryption.Encrypt(p.LastName)}', Sex='{Encryption.Encrypt(p.Sex)}', DateOfBirth='{Encryption.Encrypt(p.DateOfBirth)}', MigrationBackground='{Encryption.Encrypt(p.MigrationBackground.ToString())}', Address='{Encryption.Encrypt(p.Address)}', Phone='{Encryption.Encrypt(p.Phone)}', EMail='{Encryption.Encrypt(p.EMail)}', Note='{Encryption.Encrypt(p.Note)}', Tested='{Encryption.Encrypt(p.Tested)}', Vaccinated='{Encryption.Encrypt(p.Vaccinated)}', Created='{Encryption.Encrypt(p.Created)}' where id={p.getID};";
                 SQLiteCommand command = new SQLiteCommand(updateperson, connection);
                 command.ExecuteNonQuery();
             }

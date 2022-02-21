@@ -17,12 +17,12 @@ namespace Contact_Tracking.Custom_Controls
         {
             InitializeComponent();
 
-            SideBar_Menu.Text = "         " + Main.rm.GetString("Menu");
-            SideBar_Tracking.Text = "         " + Main.rm.GetString("Tracking");
-            SideBar_Settings.Text = "         " + Main.rm.GetString("Settings");
-            UpdateButton.Text = "         " + Main.rm.GetString("Update");
-            CurrentLabel.Text = Main.rm.GetString("Current") + ":";
-            NewestLabel.Text = Main.rm.GetString("Newest") + ":";
+            SideBar_Menu.Text = "         " + Properties.strings.Menu;
+            SideBar_Tracking.Text = "         " + Properties.strings.Tracking;
+            SideBar_Settings.Text = "         " + Properties.strings.Settings;
+            UpdateButton.Text = "         " + Properties.strings.Update;
+            CurrentLabel.Text = Properties.strings.Current + ":";
+            NewestLabel.Text = Properties.strings.Newest + ":";
 
             Inits.Voids.Add(Init);
         }
@@ -77,6 +77,9 @@ namespace Contact_Tracking.Custom_Controls
 
             var settings = this.ParentForm.Controls["settings"];
             settings.Hide();
+
+            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
+            statistics_Tab.Hide();
             //       this.Parent.Controls[""]
         }
 
@@ -96,6 +99,9 @@ namespace Contact_Tracking.Custom_Controls
 
             var settings = this.ParentForm.Controls["settings"];
             settings.Show();
+
+            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
+            statistics_Tab.Hide();
         }
         public void DownloadProgressCallback4(object sender, DownloadProgressChangedEventArgs e)
         {
@@ -111,14 +117,14 @@ namespace Contact_Tracking.Custom_Controls
             if (e.ProgressPercentage == 100)
             {
                 MyControls.SideBar.DownloadProgress.Hide();
-                MyControls.SideBar.UpdateButton.Text = "         " + Main.rm.GetString("Install")  + " Update";
+                MyControls.SideBar.UpdateButton.Text = "         " + Properties.strings.Install  + " Update";
                 MyControls.SideBar.UpdateButton.Image = Properties.Resources.unbox;
 
 
                 MyControls.Main.restartPopUp.type = "Install";
-                MyControls.Main.restartPopUp.Content.Text = Main.rm.GetString("DownloadComplete");
-                MyControls.Main.restartPopUp.Restart.Text = Main.rm.GetString("Yes");
-                MyControls.Main.restartPopUp.NoRestart.Text = Main.rm.GetString("No");
+                MyControls.Main.restartPopUp.Content.Text = Properties.strings.DownloadComplete;
+                MyControls.Main.restartPopUp.Restart.Text = Properties.strings.Yes;
+                MyControls.Main.restartPopUp.NoRestart.Text = Properties.strings.No;
                 MyControls.Main.restartPopUp.Show();
             }
         }
@@ -190,6 +196,31 @@ namespace Contact_Tracking.Custom_Controls
 
             var settings = this.ParentForm.Controls["settings"];
             settings.Hide();
+
+            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
+            statistics_Tab.Hide();
+        }
+
+        private void Stats_Button_Click(object sender, EventArgs e)
+        {
+            if (this.Width >= this.MaximumSize.Width)
+            {
+                sidebarExpand = true;
+                SideBarTimer.Start();
+            }
+
+            var tracking = this.ParentForm.Controls["tracking"];
+            tracking.Hide();
+
+            var personCard = this.ParentForm.Controls["personCard"];
+            personCard.Hide();
+
+            var settings = this.ParentForm.Controls["settings"];
+            settings.Hide();
+
+            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
+            statistics_Tab.Show();
+
         }
     }
 }

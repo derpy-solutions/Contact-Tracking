@@ -37,7 +37,7 @@ namespace Contact_Tracking.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"F:\\derpy_Developments\\Contact Tracking\\Data\\data.db\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\derpy_Developments\\Contact Tracking\\Data\\")]
         public string DataPath {
             get {
                 return ((string)(this["DataPath"]));
@@ -158,7 +158,7 @@ namespace Contact_Tracking.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MyVeryComplexKey1234")]
+        [global::System.Configuration.DefaultSettingValueAttribute("b14ca5898a4e4133bbce2ea2315a1916")]
         public string SecurityKey {
             get {
                 return ((string)(this["SecurityKey"]));
@@ -177,6 +177,18 @@ namespace Contact_Tracking.Properties {
             }
             set {
                 this["MaxVisits"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("abcd")]
+        public string MySetting {
+            get {
+                return ((string)(this["MySetting"]));
+            }
+            set {
+                this["MySetting"] = value;
             }
         }
     }

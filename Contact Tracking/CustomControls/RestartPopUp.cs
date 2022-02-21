@@ -19,9 +19,9 @@ namespace Contact_Tracking.Custom_Controls
             InitializeComponent();
 
 
-            Content.Text = Main.rm.GetString("InstalledFonts");
-            NoRestart.Text = Main.rm.GetString("NoRestart");
-            Restart.Text = Main.rm.GetString("Restart");
+            Content.Text = Properties.strings.InstalledFonts;
+            NoRestart.Text = Properties.strings.NoRestart;
+            Restart.Text = Properties.strings.Restart;
         }
 
         private void Restart_Click(object sender, EventArgs e)

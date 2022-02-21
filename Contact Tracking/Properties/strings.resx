@@ -117,34 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adventure" xml:space="preserve">
-    <value>Adventure</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="Command" xml:space="preserve">
-    <value>Command</value>
-  </data>
-  <data name="Creative" xml:space="preserve">
-    <value>Creative</value>
-  </data>
   <data name="Current" xml:space="preserve">
     <value>Current</value>
   </data>
-  <data name="DeleteServer" xml:space="preserve">
-    <value>Delete Server</value>
+  <data name="divers" xml:space="preserve">
+    <value>divers</value>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
     <value>The Download is complete!
 
 Would you like to install now?</value>
   </data>
-  <data name="Favorite" xml:space="preserve">
-    <value>Favorite</value>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
   </data>
-  <data name="Favorites" xml:space="preserve">
-    <value>Favorites</value>
+  <data name="female" xml:space="preserve">
+    <value>female</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Install</value>
@@ -154,17 +142,17 @@ Would you like to install now?</value>
 
 Restart now?</value>
   </data>
-  <data name="Kick" xml:space="preserve">
-    <value>Kick</value>
-  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>male</value>
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
-  <data name="Mode" xml:space="preserve">
-    <value>Mode</value>
+  <data name="migration_background" xml:space="preserve">
+    <value>migration background</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>New</value>
@@ -178,14 +166,8 @@ Restart now?</value>
   <data name="NoRestart" xml:space="preserve">
     <value>Don't Restart</value>
   </data>
-  <data name="of_the_server" xml:space="preserve">
-    <value>of the server.</value>
-  </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
-  </data>
-  <data name="Player" xml:space="preserve">
-    <value>Player</value>
   </data>
   <data name="ResetSettings" xml:space="preserve">
     <value>Reset Settings</value>
@@ -198,9 +180,6 @@ Restart now?</value>
 
 Restart now?</value>
   </data>
-  <data name="Run" xml:space="preserve">
-    <value>Run</value>
-  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -210,32 +189,8 @@ Restart now?</value>
   <data name="SearchForUpdates" xml:space="preserve">
     <value>Automatically search for Updates</value>
   </data>
-  <data name="Server" xml:space="preserve">
-    <value>Server</value>
-  </data>
-  <data name="Servers" xml:space="preserve">
-    <value>Servers</value>
-  </data>
-  <data name="Server_Loading" xml:space="preserve">
-    <value>Server loading ...</value>
-  </data>
-  <data name="Server_Online" xml:space="preserve">
-    <value>Online at</value>
-  </data>
-  <data name="Server_Shutdown" xml:space="preserve">
-    <value>Server shutting down ...</value>
-  </data>
-  <data name="Server_Started" xml:space="preserve">
-    <value>Server started ...</value>
-  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
-  </data>
-  <data name="Set_GameMode" xml:space="preserve">
-    <value>Set gamemode of</value>
-  </data>
-  <data name="ShowUI" xml:space="preserve">
-    <value>Show Java Server UI</value>
   </data>
   <data name="Show_ToolTips" xml:space="preserve">
     <value>Show tooltips</value>
@@ -245,22 +200,7 @@ Restart now?</value>
 
 Restart now?</value>
   </data>
-  <data name="Spectator" xml:space="preserve">
-    <value>Spectator</value>
-  </data>
-  <data name="Start" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="Survival" xml:space="preserve">
-    <value>Survival</value>
-  </data>
-  <data name="Teleport" xml:space="preserve">
-    <value>Teleport</value>
-  </data>
   <data name="to" xml:space="preserve">
-    <value>to</value>
-  </data>
-  <data name="to_Player" xml:space="preserve">
     <value>to</value>
   </data>
   <data name="Tracking" xml:space="preserve">
@@ -269,14 +209,8 @@ Restart now?</value>
   <data name="ttp_Browse" xml:space="preserve">
     <value>Browse to your</value>
   </data>
-  <data name="ttp_CMD" xml:space="preserve">
-    <value>The command which will be used to start your java servers.</value>
-  </data>
   <data name="ttp_DataPath" xml:space="preserve">
     <value>The Folder your Data for the application is stored in.</value>
-  </data>
-  <data name="ttp_JavaPath" xml:space="preserve">
-    <value>The path to the 'java.exe' which should be used to start the servers.</value>
   </data>
   <data name="ttp_New" xml:space="preserve">
     <value>Create a new</value>
@@ -286,15 +220,6 @@ Restart now?</value>
   </data>
   <data name="ttp_Reset" xml:space="preserve">
     <value>Reset your settings to the default settings.</value>
-  </data>
-  <data name="ttp_Run" xml:space="preserve">
-    <value>Run the selected command on the server.</value>
-  </data>
-  <data name="ttp_ServerPath" xml:space="preserve">
-    <value>The Folder your Servers are placed in.</value>
-  </data>
-  <data name="ttp_Start" xml:space="preserve">
-    <value>Start the selected Server.</value>
   </data>
   <data name="ttp_UpdateAvailable" xml:space="preserve">
     <value>There is an update available, please update!</value>
@@ -311,6 +236,9 @@ Install it now?</value>
     <value>There is an update available!
 
 Would you like to update?</value>
+  </data>
+  <data name="VisitorStats" xml:space="preserve">
+    <value>Visitor Stats</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

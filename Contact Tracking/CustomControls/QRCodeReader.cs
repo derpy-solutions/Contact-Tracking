@@ -62,11 +62,12 @@ namespace Contact_Tracking.Custom_Controls
                             Person person = new Person();
                             person.FirstName = data[1];
                             person.LastName = data[2];
-                            person.Sex = data[3];
-                            person.DateOfBirth = data[4];
+                            person.DateOfBirth = data[3];
+                            person.Sex = data[4];
                             person.Address = data[5];
                             person.Phone = data[6];
                             person.EMail = data[7];
+                            person.MigrationBackground = bool.Parse(data[8]);
                             person.ID = G.LastID + 1;
                             Console.WriteLine("Add '" + person.FullName + "' with ID: " + person.ID);
                             person.Add();
