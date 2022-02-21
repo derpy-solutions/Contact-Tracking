@@ -41,7 +41,7 @@ namespace Contact_Tracking.Custom_Controls
         public TrackingTab()
         {
             InitializeComponent();
-
+            DateLabel.Text = DateTime.Now.ToString("D");
         }
 
 

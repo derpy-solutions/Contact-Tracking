@@ -61,6 +61,7 @@ namespace Contact_Tracking
         public string FirstName;
         public string LastName;
         public string Sex;
+        public bool MigrationBackground;
         public string DateOfBirth;
         public string Address;
         public string Phone;
@@ -69,7 +70,9 @@ namespace Contact_Tracking
         public string Tested;
         public string Vaccinated;
         public string VisitTime;
-        public bool SaveProof;
+        public string Created;
+        public bool statAdded = false;
+        public bool _statAdded = false;
         public int ID { get; set; }
         public string FullName {
             get
@@ -119,6 +122,96 @@ namespace Contact_Tracking
 
                 MyControls.TrackingTab.VisitorList.Controls.Add(visitorItem);
                 SQL.AddVisit(this);
+
+                if (G.CurrentStat == null)
+                {
+                    G.CurrentStat = new Stat();
+                    G.CurrentStat.ID = G.LastStatID;
+                    G.CurrentStat.Date = DateTime.Now;
+                    G.CurrentStat.Add();
+                }
+
+
+                DateTime date;
+                if (DateTime.TryParse(DateOfBirth, out date))
+                {
+                    switch (G.Years(date, DateTime.Now))
+                    {
+                        case int n when (n <= 12):
+                            //12 or younger
+                            switch (Sex)
+                            {
+                                case "female":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_6_12.female++;
+                                    if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background++;
+                                    break;
+                                case "male":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_6_12.male++;
+                                    if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background++;
+                                    break;
+                                case "divers":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_6_12.divers++;
+                                    if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background++;
+                                    break;
+                            }
+                                
+                        break;
+
+                        case int n when (n <= 17):
+                            //17 or younger
+                            switch (Sex)
+                            {
+                                case "female":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_13_17.female++;
+                                    if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background++;
+                                    break;
+                                case "male":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_13_17.male++;
+                                    if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background++;
+                                    break;
+                                case "divers":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_13_17.divers++;
+                                    if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background++;
+                                    break;
+                            }
+                            break;
+
+                        case int n when (n >= 18):
+                            //18 or older
+                            switch (Sex)
+                            {
+                                case "female":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_18_27.female++;
+                                    if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background++;
+                                    break;
+                                case "male":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_18_27.male++;
+                                    if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background++;
+                                    break;
+                                case "divers":
+                                    statAdded = true;
+                                    G.CurrentStat.Age_18_27.divers++;
+                                    if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background++;
+                                    break;
+                            }
+                            break;
+                    }
+                }
+
+                if (statAdded && statAdded != _statAdded)
+                {
+                    Console.WriteLine("Added " + FullName + " to our stats.");
+                    _statAdded = statAdded;
+                    SQL.UpdateStat(G.CurrentStat);
+                }
             }
         }
         public void DeleteVisit()
@@ -130,6 +223,92 @@ namespace Contact_Tracking
                 VisitTime = null;
 
                 SQL.DeleteVisit(this);
+
+                if (statAdded)
+                {
+                    DateTime date;
+                    if (DateTime.TryParse(DateOfBirth, out date))
+                    {
+                        switch (G.Years(date, DateTime.Now))
+                        {
+                            case int n when (n <= 12):
+                                //12 or younger
+                                switch (Sex)
+                                {
+                                    case "female":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_6_12.female--;
+                                        if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background--;
+                                        break;
+                                    case "male":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_6_12.male--;
+                                        if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background--;
+                                        break;
+                                    case "divers":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_6_12.divers--;
+                                        if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background--;
+                                        break;
+                                }
+
+                                break;
+
+                            case int n when (n <= 17):
+                                //17 or younger
+                                switch (Sex)
+                                {
+                                    case "female":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_13_17.female--;
+                                        if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background--;
+                                        break;
+
+                                    case "male":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_13_17.male--;
+                                        if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background--;
+                                        break;
+
+                                    case "divers":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_13_17.divers--;
+                                        if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background--;
+                                        break;
+                                }
+                                break;
+
+                            case int n when (n >= 18):
+                                //18 or older
+                                switch (Sex)
+                                {
+                                    case "female":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_18_27.female--;
+                                        if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background--;
+                                        break;
+                                    case "male":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_18_27.male--;
+                                        if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background--;
+                                        break;
+                                    case "divers":
+                                        statAdded = false;
+                                        G.CurrentStat.Age_18_27.divers--;
+                                        if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background--;
+                                        break;
+                                }
+                                break;
+                        }
+                    }
+
+                    if (!statAdded && _statAdded != statAdded)
+                    {
+                        Console.WriteLine("Removed " + FullName + " from our stats.");
+                        _statAdded = statAdded;
+                        SQL.UpdateStat(G.CurrentStat);
+                    }
+                }
             }
         }
         public void SaveQR()

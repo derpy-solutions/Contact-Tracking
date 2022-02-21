@@ -19,7 +19,11 @@ namespace Contact_Tracking
     public class G
     {
         public static int LastID = 1;
+        public static int LastStatID = 1;
         public static List<Person> People = new List<Person>();
+        public static List<Stat> Stats = new List<Stat>();
+        public static Stat CurrentStat;
+
         public static int Years(DateTime start, DateTime end)
         {
             return (end.Year - start.Year - 1) +

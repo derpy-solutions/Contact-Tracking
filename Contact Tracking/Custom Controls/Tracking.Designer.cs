@@ -35,7 +35,7 @@ namespace Contact_Tracking.Custom_Controls
             this.QR_Button = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.VisitorList = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.DateLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Count_Label = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -110,19 +110,19 @@ namespace Contact_Tracking.Custom_Controls
             this.VisitorList.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.VisitorList_ControlRemoved);
             this.VisitorList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VisitorList_MouseDown);
             // 
-            // label2
+            // DateLabel
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.DateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(114, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(343, 48);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Montag, 14.02.2022";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DateLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DateLabel.ForeColor = System.Drawing.Color.White;
+            this.DateLabel.Location = new System.Drawing.Point(114, 0);
+            this.DateLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(343, 48);
+            this.DateLabel.TabIndex = 6;
+            this.DateLabel.Text = "Wochentag, 01.01.2000";
+            this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -255,7 +255,7 @@ namespace Contact_Tracking.Custom_Controls
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Controls.Add(this.Count_Label, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.DateLabel, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -305,7 +305,7 @@ namespace Contact_Tracking.Custom_Controls
         public System.Windows.Forms.Button QR_Button;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.FlowLayoutPanel VisitorList;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label DateLabel;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label Count_Label;
         public System.Windows.Forms.ImageList imageList1;
