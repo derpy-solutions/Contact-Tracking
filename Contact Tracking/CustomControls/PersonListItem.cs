@@ -17,6 +17,7 @@ namespace Contact_Tracking.Custom_Controls
     {
         public bool focused;
         public bool passed;
+        public Point _NameLabelPos;
         public TrackingTab parentTab;
         public Person person;
         public void setPassed()
@@ -64,7 +65,6 @@ namespace Contact_Tracking.Custom_Controls
 
                     var offset = new Point(MousePosition.X - main.Location.X - tracking.Location.X - 5, MousePosition.Y - main.Location.Y - tracking.Location.Y - this.Height);
 
-                    Console.WriteLine("Show Menu");
                     var pos = offset;
                     rightClick_Menu.Location = pos;
                     rightClick_Menu.personName.Text = person.FullName;
@@ -89,6 +89,32 @@ namespace Contact_Tracking.Custom_Controls
             if (this.person != null)
             {
                 person.AddVisit();
+                person.LastVisit = DateTime.Now.ToString("d");
+                person.Save();
+            }
+        }
+
+        private void PersonListItem_Paint(object sender, PaintEventArgs e)
+        {
+            if (!Properties.Settings.Default.ShowBadge)
+            {
+                if (statusImage.Visible)
+                {
+                    _NameLabelPos = nameLabel.Location;
+
+                    statusImage.Hide();
+                    nameLabel.Location = statusImage.Location;
+                    nameLabel.Size = new Size(nameLabel.Width + 4 + statusImage.Width, nameLabel.Height);
+                }
+            }
+            else
+            {
+                if (!statusImage.Visible)
+                {
+                    statusImage.Show();
+                    nameLabel.Location = _NameLabelPos;
+                    nameLabel.Size = new Size(nameLabel.Width - 4 - statusImage.Width, nameLabel.Height);
+                }
             }
         }
     }

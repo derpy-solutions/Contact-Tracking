@@ -60,7 +60,49 @@ namespace Contact_Tracking
         private Bitmap _QRCode;
         public string FirstName;
         public string LastName;
-        public string Sex;
+        public string Gender;
+        public string _AgeCategory;
+        public string getAgeCategory()
+        {
+            return AgeCategory;
+        }
+        public string AgeCategory
+        {
+            get
+            {
+                if (_AgeCategory == null || _AgeCategory == "")
+                {
+                    if (DateOfBirth != null)
+                    {
+                        DateTime date;
+                        if (DateTime.TryParse(DateOfBirth, out date))
+                        {
+
+                            switch (G.Years(date, DateTime.Now))
+                            {
+                                case int n when (n <= 13):
+                                    _AgeCategory = "6-13";
+                                    break;
+
+                                case int n when (n <= 17):
+                                    _AgeCategory = "14-17";
+                                    break;
+
+                                case int n when (n > 17):
+                                    _AgeCategory = "18+";
+                                    break;
+                            }
+                        }
+                    }
+                }
+
+                return _AgeCategory;
+            }
+            set
+            {
+                _AgeCategory = value;
+            }
+        }
         public bool MigrationBackground;
         public string DateOfBirth;
         public string Address;
@@ -70,9 +112,7 @@ namespace Contact_Tracking
         public string Tested;
         public string Vaccinated;
         public string VisitTime;
-        public string Created;
-        public bool statAdded = false;
-        public bool _statAdded = false;
+        public string LastVisit;
         public int ID { get; set; }
         public string FullName {
             get
@@ -95,7 +135,7 @@ namespace Contact_Tracking
         public string QRData {
             get
             {
-                return $"{ID}|{FirstName}|{LastName}|{DateOfBirth}|{Sex}|{Address}|{Phone}|{EMail}|{MigrationBackground}";
+                return $"derpySolutions|{FirstName}|{LastName}|{DateOfBirth}|{Gender}|{Address}|{Phone}|{EMail}|{MigrationBackground}";
             }
         }
         public string FileName {
@@ -104,7 +144,203 @@ namespace Contact_Tracking
                 return $"{FirstName} {LastName} - {DateOfBirth}";
             }
         }
-        public void AddVisit()
+        public bool DeleteStat()
+        {
+            if (G.CurrentStat == null)
+            {
+                G.LastStatID++;
+                G.CurrentStat = new Stat();
+                G.CurrentStat.ID = G.LastStatID;
+                G.CurrentStat.Add();
+            }
+
+            bool update(object obj)
+            {
+                switch (obj)
+                {
+                    case Stats.Age_14_17 s14_17:
+                        switch (Gender)
+                        {
+                            case "female":
+                                s14_17.female--;
+                                return true;
+
+                            case "male":
+                                s14_17.male--;
+                                return true;
+
+                            case "divers":
+                                s14_17.divers--;
+                                return true;
+                        }
+                        break;
+                    case Stats.Age_6_13 s6_13:
+                        switch (Gender)
+                        {
+                            case "female":
+                                s6_13.female--;
+                                return true;
+
+                            case "male":
+                                s6_13.male--;
+                                return true;
+
+                            case "divers":
+                                s6_13.divers--;
+                                return true;
+                        }
+                        break;
+                    case Stats.Age_18_Plus s18:
+                        switch (Gender)
+                        {
+                            case "female":
+                                s18.female--;
+                                return true;
+
+                            case "male":
+                                s18.male--;
+                                return true;
+
+                            case "divers":
+                                s18.divers--;
+                                return true;
+                        }
+                        break;
+                }
+
+                return false;
+            }
+
+            if (G.CurrentStat.People.Contains(getID))
+            {
+                switch (AgeCategory)
+                {
+                    case "6-13":
+                        if (update(G.CurrentStat.Age_6_13))
+                        {
+                            if (MigrationBackground) G.CurrentStat.Age_6_13.migration_background--;
+                            return true;
+                        }
+                        break;
+                    case "14-17":
+                        if (update(G.CurrentStat.Age_14_17))
+                        {
+                            if (MigrationBackground) G.CurrentStat.Age_14_17.migration_background--;
+                            return true;
+                        }
+                        break;
+
+                    case "18+":
+                        if (update(G.CurrentStat.Age_18_Plus))
+                        {
+                            if (MigrationBackground) G.CurrentStat.Age_18_Plus.migration_background--;
+                            return true;
+                        }
+                        break;
+                }
+            }
+
+            return false;
+         }
+        public bool AddStat()
+        {
+            if (G.CurrentStat == null)
+            {
+                G.CurrentStat = new Stat();
+                G.CurrentStat.ID = G.LastStatID;
+                ConsoleEx.WriteLine("Adding Default Stat. Date: " + G.CurrentStat.Date.ToString("d"));
+                G.CurrentStat.Add();
+            }
+
+            bool update(object obj)
+            {
+                switch (obj)
+                {
+                    case Stats.Age_14_17 s14_17:
+                        switch (Gender)
+                        {
+                            case "female":
+                                s14_17.female++;
+                                return true;
+
+                            case "male":
+                                s14_17.male++;
+                                return true;
+
+                            case "divers":
+                                s14_17.divers++;
+                                return true;
+                        }
+                        break;
+                    case Stats.Age_6_13 s6_13:
+                        switch (Gender)
+                        {
+                            case "female":
+                                s6_13.female++;
+                                return true;
+
+                            case "male":
+                                s6_13.male++;
+                                return true;
+
+                            case "divers":
+                                s6_13.divers++;
+                                return true;
+                        }
+                        break;
+                    case Stats.Age_18_Plus s18:
+                        switch (Gender)
+                        {
+                            case "female":
+                                s18.female++;
+                                return true;
+
+                            case "male":
+                                s18.male++;
+                                return true;
+
+                            case "divers":
+                                s18.divers++;
+                                return true;
+                        }
+                        break;
+                }
+
+                return false;
+            }
+
+            if (!G.CurrentStat.People.Contains(getID))
+            {
+                switch (AgeCategory)
+                {
+                    case "6-13":
+                        if (update(G.CurrentStat.Age_6_13))
+                        {
+                            if (MigrationBackground) G.CurrentStat.Age_6_13.migration_background++;
+                            return true;
+                        }
+                        break;
+                    case "14-17":
+                        if (update(G.CurrentStat.Age_14_17))
+                        {
+                            if (MigrationBackground) G.CurrentStat.Age_14_17.migration_background++;
+                            return true;
+                        }
+                        break;
+
+                    case "18+":
+                        if (update(G.CurrentStat.Age_18_Plus))
+                        {
+                            if (MigrationBackground) G.CurrentStat.Age_18_Plus.migration_background++;
+                            return true;
+                        }
+                        break;
+                }
+            }
+
+            return false;
+         }
+        public void AddVisit(bool writeDB = true)
         {
             if (visitorItem == null)
             {
@@ -119,100 +355,19 @@ namespace Contact_Tracking
 
                 visitorItem.Time_Label.Text = VisitTime;
 
-
                 MyControls.TrackingTab.VisitorList.Controls.Add(visitorItem);
                 SQL.AddVisit(this);
 
-                if (G.CurrentStat == null)
+                if (AddStat())
                 {
-                    G.CurrentStat = new Stat();
-                    G.CurrentStat.ID = G.LastStatID;
-                    G.CurrentStat.Date = DateTime.FromOADate(Math.Floor(DateTime.Now.ToOADate()));
-                    Console.WriteLine("Adding Default Stat. Date: " + G.CurrentStat.Date.ToString("d"));
-                    G.CurrentStat.Add();
-                }
-
-
-                DateTime date;
-                if (DateTime.TryParse(DateOfBirth, out date))
-                {
-                    switch (G.Years(date, DateTime.Now))
-                    {
-                        case int n when (n <= 12):
-                            //12 or younger
-                            switch (Sex)
-                            {
-                                case "female":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_6_12.female++;
-                                    if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background++;
-                                    break;
-                                case "male":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_6_12.male++;
-                                    if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background++;
-                                    break;
-                                case "divers":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_6_12.divers++;
-                                    if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background++;
-                                    break;
-                            }
-                                
-                        break;
-
-                        case int n when (n <= 17):
-                            //17 or younger
-                            switch (Sex)
-                            {
-                                case "female":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_13_17.female++;
-                                    if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background++;
-                                    break;
-                                case "male":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_13_17.male++;
-                                    if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background++;
-                                    break;
-                                case "divers":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_13_17.divers++;
-                                    if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background++;
-                                    break;
-                            }
-                            break;
-
-                        case int n when (n >= 18):
-                            //18 or older
-                            switch (Sex)
-                            {
-                                case "female":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_18_27.female++;
-                                    if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background++;
-                                    break;
-                                case "male":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_18_27.male++;
-                                    if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background++;
-                                    break;
-                                case "divers":
-                                    statAdded = true;
-                                    G.CurrentStat.Age_18_27.divers++;
-                                    if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background++;
-                                    break;
-                            }
-                            break;
-                    }
-                }
-
-                if (statAdded && statAdded != _statAdded)
-                {
-                    _statAdded = statAdded;
-                    SQL.UpdateStat(G.CurrentStat);
+                    G.CurrentStat.People.Add(getID);
                     MyControls.Stats.RefreshStats(G.CurrentStat);
-                }
+
+                    if (writeDB)
+                    {
+                        SQL.UpdateStat(G.CurrentStat);
+                    }
+                }             
             }
         }
         public void DeleteVisit()
@@ -225,90 +380,11 @@ namespace Contact_Tracking
 
                 SQL.DeleteVisit(this);
 
-                if (statAdded)
+                if (DeleteStat())
                 {
-                    DateTime date;
-                    if (DateTime.TryParse(DateOfBirth, out date))
-                    {
-                        switch (G.Years(date, DateTime.Now))
-                        {
-                            case int n when (n <= 12):
-                                //12 or younger
-                                switch (Sex)
-                                {
-                                    case "female":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_6_12.female--;
-                                        if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background--;
-                                        break;
-                                    case "male":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_6_12.male--;
-                                        if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background--;
-                                        break;
-                                    case "divers":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_6_12.divers--;
-                                        if (MigrationBackground) G.CurrentStat.Age_6_12.migration_background--;
-                                        break;
-                                }
-
-                                break;
-
-                            case int n when (n <= 17):
-                                //17 or younger
-                                switch (Sex)
-                                {
-                                    case "female":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_13_17.female--;
-                                        if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background--;
-                                        break;
-
-                                    case "male":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_13_17.male--;
-                                        if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background--;
-                                        break;
-
-                                    case "divers":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_13_17.divers--;
-                                        if (MigrationBackground) G.CurrentStat.Age_13_17.migration_background--;
-                                        break;
-                                }
-                                break;
-
-                            case int n when (n >= 18):
-                                //18 or older
-                                switch (Sex)
-                                {
-                                    case "female":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_18_27.female--;
-                                        if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background--;
-                                        break;
-                                    case "male":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_18_27.male--;
-                                        if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background--;
-                                        break;
-                                    case "divers":
-                                        statAdded = false;
-                                        G.CurrentStat.Age_18_27.divers--;
-                                        if (MigrationBackground) G.CurrentStat.Age_18_27.migration_background--;
-                                        break;
-                                }
-                                break;
-                        }
-                    }
-
-                    if (!statAdded && _statAdded != statAdded)
-                    {
-                        _statAdded = statAdded;
-                        SQL.UpdateStat(G.CurrentStat);
-                        MyControls.Stats.RefreshStats(G.CurrentStat);
-                    }
+                    G.CurrentStat.People.Remove(getID);
+                    MyControls.Stats.RefreshStats(G.CurrentStat);
+                    SQL.UpdateStat(G.CurrentStat);
                 }
             }
         }
@@ -335,6 +411,11 @@ namespace Contact_Tracking
         }
         public void Save()
         {
+            if (LastVisit == null)
+            {
+                LastVisit = DateTime.Now.ToString("d");
+            }
+
             SQL.UpdateRow(this);
             RefreshCovid();
             Add();
@@ -365,10 +446,14 @@ namespace Contact_Tracking
                 pC.Phone_TextBox.Text = Phone;
                 pC.temp.Phone = Phone;
 
-                pC.PersonID.Text = "Persönliche ID: " + getID;
+                pC.PersonID.Text = Properties.strings.PersonalID + ": " + getID;
                 pC.temp.ID = getID;
 
-                pC.temp.Sex = Sex;
+                pC.AgeCategory_Combo.SelectedItem = AgeCategory;
+                pC.Migration_ChckBx.setChecked(MigrationBackground);
+                pC.temp.MigrationBackground = MigrationBackground;
+
+                pC.temp.Gender = Gender;
                 pC.temp.DateOfBirth = DateOfBirth;
                 pC.temp.Tested = Tested;
                 pC.temp.Vaccinated = Vaccinated;
@@ -376,26 +461,23 @@ namespace Contact_Tracking
                 DateTime date;
 
                 if (DateTime.TryParse(DateOfBirth, out date)) pC.DateOfBirth_Picker.Value = date;
-                else pC.DateOfBirth_Picker.Value = DateTime.Now;
 
                 if (DateTime.TryParse(Tested, out date)) pC.Tested_Picker.Value = date;
-                else pC.Tested_Picker.Value = DateTime.Now;
 
                 if (DateTime.TryParse(Vaccinated, out date)) pC.Vaccinated_Picker.Value = date;
-                else pC.Vaccinated_Picker.Value = DateTime.Now;
 
-                if (Sex != null)
+                if (Gender != null)
                 {
-                    switch (Sex)
+                    switch (Gender)
                     {
                         case "male":
-                            pC.SexCombo.SelectedItem = "männlich";
+                            pC.GenderCombo.SelectedItem = Properties.strings.male;
                             break;
                         case "divers":
-                            pC.SexCombo.SelectedItem = "divers";
+                            pC.GenderCombo.SelectedItem = Properties.strings.divers;
                             break;
                         case "female":
-                            pC.SexCombo.SelectedItem = "weiblich";
+                            pC.GenderCombo.SelectedItem = Properties.strings.female;
                             break;
                     }
                 }
@@ -410,6 +492,7 @@ namespace Contact_Tracking
                 listItem.Dispose();
             }
 
+            G.People.Remove(this);
             SQL.DeleteRow(this);
         }
         public void RefreshCovid()
@@ -431,27 +514,27 @@ namespace Contact_Tracking
 
             if (DateTime.TryParse(DateOfBirth, out date)) 
             {
-                if (G.Years(date, DateTime.Now) < 13)
+                if (G.Years(date, DateTime.Now) < Properties.Settings.Default.Corona_MinAgeTest)
                 {
-                    //Console.WriteLine("Young enough! Only " + G.Years(date, DateTime.Now) + " years!");
+                    //ConsoleEx.WriteLine("Young enough! Only " + G.Years(date, DateTime.Now) + " years!");
                     return true;
                 }
             }
 
             if (DateTime.TryParse(Tested, out date)) 
             {
-                if (DateTime.Now.Subtract(date).TotalHours < 48)
+                if (DateTime.Now.Subtract(date).TotalHours < Properties.Settings.Default.Corona_TestedDuration)
                 {
-                   // Console.WriteLine("Last Test less than 48 hours! Only " + DateTime.Now.Subtract(date).TotalHours + " hours passed!");
+                    // ConsoleEx.WriteLine("Last Test less than 48 hours! Only " + DateTime.Now.Subtract(date).TotalHours + " hours passed!");
                     return true;
                 }                
             }
 
             if (DateTime.TryParse(Vaccinated, out date)) 
             {
-                if (DateTime.Now.Subtract(date).TotalDays < 90)
+                if (DateTime.Now.Subtract(date).TotalDays < Properties.Settings.Default.Corona_VaccinatedDuration)
                 {
-                   // Console.WriteLine("Vaccinated less than 90 days ago! Only " + DateTime.Now.Subtract(date).TotalDays + " days passed!");
+                    // ConsoleEx.WriteLine("Vaccinated less than 90 days ago! Only " + DateTime.Now.Subtract(date).TotalDays + " days passed!");
                     return true;
                 }
             }

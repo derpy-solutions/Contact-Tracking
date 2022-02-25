@@ -61,6 +61,87 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        internal static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Visit.
+        /// </summary>
+        internal static string AddVisit {
+            get {
+                return ResourceManager.GetString("AddVisit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age Group.
+        /// </summary>
+        internal static string AgeGroup {
+            get {
+                return ResourceManager.GetString("AgeGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for Updates.
+        /// </summary>
+        internal static string CheckUpdates {
+            get {
+                return ResourceManager.GetString("CheckUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Corona Proof.
+        /// </summary>
+        internal static string CoronaProof {
+            get {
+                return ResourceManager.GetString("CoronaProof", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Covid.
+        /// </summary>
+        internal static string Covid {
+            get {
+                return ResourceManager.GetString("Covid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tested and Vaccinated Status can be saved so that visitors don&apos;t have to show their proof every time..
+        /// </summary>
+        internal static string CovidDescription {
+            get {
+                return ResourceManager.GetString("CovidDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        internal static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create QR.
+        /// </summary>
+        internal static string CreateQR {
+            get {
+                return ResourceManager.GetString("CreateQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current.
         /// </summary>
         internal static string Current {
@@ -70,7 +151,43 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to divers.
+        ///   Looks up a localized string similar to Date of Birth.
+        /// </summary>
+        internal static string DateOfBirth {
+            get {
+                return ResourceManager.GetString("DateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Days to save.
+        /// </summary>
+        internal static string DaysToSave {
+            get {
+                return ResourceManager.GetString("DaysToSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Days to show.
+        /// </summary>
+        internal static string DaysToShow {
+            get {
+                return ResourceManager.GetString("DaysToShow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Person.
+        /// </summary>
+        internal static string DeletePerson {
+            get {
+                return ResourceManager.GetString("DeletePerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to queer.
         /// </summary>
         internal static string divers {
             get {
@@ -90,6 +207,24 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-Mail.
+        /// </summary>
+        internal static string EMail {
+            get {
+                return ResourceManager.GetString("EMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         internal static string Export {
@@ -104,6 +239,42 @@ namespace Contact_Tracking.Properties {
         internal static string female {
             get {
                 return ResourceManager.GetString("female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        internal static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flip Camera.
+        /// </summary>
+        internal static string FlipCamera {
+            get {
+                return ResourceManager.GetString("FlipCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        internal static string Gender {
+            get {
+                return ResourceManager.GetString("Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate new.
+        /// </summary>
+        internal static string GenerateNew {
+            get {
+                return ResourceManager.GetString("GenerateNew", resourceCulture);
             }
         }
         
@@ -137,11 +308,29 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        internal static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to male.
         /// </summary>
         internal static string male {
             get {
                 return ResourceManager.GetString("male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Visitors.
+        /// </summary>
+        internal static string MaxVisists {
+            get {
+                return ResourceManager.GetString("MaxVisists", resourceCulture);
             }
         }
         
@@ -160,6 +349,15 @@ namespace Contact_Tracking.Properties {
         internal static string migration_background {
             get {
                 return ResourceManager.GetString("migration_background", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Require Proof at Age.
+        /// </summary>
+        internal static string MinAge {
+            get {
+                return ResourceManager.GetString("MinAge", resourceCulture);
             }
         }
         
@@ -200,11 +398,92 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        internal static string Note {
+            get {
+                return ResourceManager.GetString("Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Path.
         /// </summary>
         internal static string Path {
             get {
                 return ResourceManager.GetString("Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Data.
+        /// </summary>
+        internal static string PersonalData {
+            get {
+                return ResourceManager.GetString("PersonalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal data gets encrypted and saved in a data base using your unique security key..
+        /// </summary>
+        internal static string PersonalDataDescription {
+            get {
+                return ResourceManager.GetString("PersonalDataDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal ID.
+        /// </summary>
+        internal static string PersonalID {
+            get {
+                return ResourceManager.GetString("PersonalID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QR Code.
+        /// </summary>
+        internal static string QRCode {
+            get {
+                return ResourceManager.GetString("QRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Require password to edit people.
+        /// </summary>
+        internal static string RequirePassword {
+            get {
+                return ResourceManager.GetString("RequirePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Changes.
+        /// </summary>
+        internal static string ResetChanges {
+            get {
+                return ResourceManager.GetString("ResetChanges", resourceCulture);
             }
         }
         
@@ -247,6 +526,24 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Statistic.
+        /// </summary>
+        internal static string SaveStats {
+            get {
+                return ResourceManager.GetString("SaveStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Visitors.
+        /// </summary>
+        internal static string SaveVisitors {
+            get {
+                return ResourceManager.GetString("SaveVisitors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         internal static string Search {
@@ -261,6 +558,34 @@ namespace Contact_Tracking.Properties {
         internal static string SearchForUpdates {
             get {
                 return ResourceManager.GetString("SearchForUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Security.
+        /// </summary>
+        internal static string Security {
+            get {
+                return ResourceManager.GetString("Security", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To perform several actions you will be required to have a password set.
+        ///All data stored through this software is encrypted using your unique security key. Changing this key means all QR Codes you handed out won&apos;t work anymore..
+        /// </summary>
+        internal static string SecurityDescription {
+            get {
+                return ResourceManager.GetString("SecurityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Security Key.
+        /// </summary>
+        internal static string SecurityKey {
+            get {
+                return ResourceManager.GetString("SecurityKey", resourceCulture);
             }
         }
         
@@ -290,6 +615,91 @@ namespace Contact_Tracking.Properties {
         internal static string Show_ToolTips_Changed {
             get {
                 return ResourceManager.GetString("Show_ToolTips_Changed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Badge.
+        /// </summary>
+        internal static string ShowBadge {
+            get {
+                return ResourceManager.GetString("ShowBadge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split log.
+        /// </summary>
+        internal static string SplitLog {
+            get {
+                return ResourceManager.GetString("SplitLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split log at (24h).
+        /// </summary>
+        internal static string SplitLogAt {
+            get {
+                return ResourceManager.GetString("SplitLogAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split Statistics.
+        /// </summary>
+        internal static string SplitStats {
+            get {
+                return ResourceManager.GetString("SplitStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split stats at (24h).
+        /// </summary>
+        internal static string SplitStatsAt {
+            get {
+                return ResourceManager.GetString("SplitStatsAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visits can be gathered anonymously to create easy Statistics.
+        ///The statistics saves only:
+        ///- Age
+        ///- Gender
+        ///- Migration Background.
+        /// </summary>
+        internal static string StatDescription {
+            get {
+                return ResourceManager.GetString("StatDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        internal static string Statistics {
+            get {
+                return ResourceManager.GetString("Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tested.
+        /// </summary>
+        internal static string Tested {
+            get {
+                return ResourceManager.GetString("Tested", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tested (hours).
+        /// </summary>
+        internal static string TestedDuration {
+            get {
+                return ResourceManager.GetString("TestedDuration", resourceCulture);
             }
         }
         
@@ -397,11 +807,94 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User Interface.
+        /// </summary>
+        internal static string UserInterface {
+            get {
+                return ResourceManager.GetString("UserInterface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vaccinated.
+        /// </summary>
+        internal static string Vaccinated {
+            get {
+                return ResourceManager.GetString("Vaccinated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vaccinated (Days).
+        /// </summary>
+        internal static string VaccinatedDuration {
+            get {
+                return ResourceManager.GetString("VaccinatedDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visitors.
+        /// </summary>
+        internal static string Visitors {
+            get {
+                return ResourceManager.GetString("Visitors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visitor Stats.
         /// </summary>
         internal static string VisitorStats {
             get {
                 return ResourceManager.GetString("VisitorStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visitor Tracking.
+        /// </summary>
+        internal static string VisitorTracking {
+            get {
+                return ResourceManager.GetString("VisitorTracking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visitors can be stored in a encrypted data base using your unique security key.
+        ///
+        ///If you don&apos;t enable saving visits in the data base they will get lost if you restart the program..
+        /// </summary>
+        internal static string VisitsDescription {
+            get {
+                return ResourceManager.GetString("VisitsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wipe People.
+        /// </summary>
+        internal static string WipePeople {
+            get {
+                return ResourceManager.GetString("WipePeople", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wipe Statistic.
+        /// </summary>
+        internal static string WipeStats {
+            get {
+                return ResourceManager.GetString("WipeStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wipe Visitor Logs.
+        /// </summary>
+        internal static string WipeVisits {
+            get {
+                return ResourceManager.GetString("WipeVisits", resourceCulture);
             }
         }
         

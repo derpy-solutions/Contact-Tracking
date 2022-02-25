@@ -25,7 +25,7 @@ namespace Contact_Tracking
             // Copy each file into the new directory.
             foreach (FileInfo fi in source.GetFiles())
             {
-                //Console.WriteLine("[" + DateTime.Now +"]: " + @"Copying {0}\{1}", target.FullName, fi.Name);
+                //ConsoleEx.WriteLine("[" + DateTime.Now +"]: " + @"Copying {0}\{1}", target.FullName, fi.Name);
                 fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
             }
 

@@ -44,6 +44,7 @@ namespace Contact_Tracking.Custom_Controls
             this.Camera.Margin = new System.Windows.Forms.Padding(4);
             this.Camera.Name = "Camera";
             this.Camera.Size = new System.Drawing.Size(300, 298);
+            this.Camera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Camera.TabIndex = 17;
             this.Camera.TabStop = false;
             // 
@@ -83,7 +84,7 @@ namespace Contact_Tracking.Custom_Controls
             this.Controls.Add(this.cboDevice);
             this.Controls.Add(this.Camera);
             this.Controls.Add(this.QR_Text);
-            this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QRCodeReader";

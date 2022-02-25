@@ -73,12 +73,13 @@ namespace Contact_Tracking.Custom_Controls
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.statusImage);
-            this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PersonListItem";
             this.Size = new System.Drawing.Size(367, 20);
             this.Click += new System.EventHandler(this.PersonListItem_Click);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.PersonListItem_Paint);
             this.DoubleClick += new System.EventHandler(this.nameLabel_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.statusImage)).EndInit();
             this.ResumeLayout(false);

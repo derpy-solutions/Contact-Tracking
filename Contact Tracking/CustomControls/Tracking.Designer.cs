@@ -34,14 +34,14 @@ namespace Contact_Tracking.Custom_Controls
             this.button2 = new System.Windows.Forms.Button();
             this.VisitorList = new System.Windows.Forms.FlowLayoutPanel();
             this.DateLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Log_Label = new System.Windows.Forms.Label();
             this.Count_Label = new System.Windows.Forms.Label();
             this.PersonList = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Header = new System.Windows.Forms.Label();
             this.qrCodeReader = new Contact_Tracking.Custom_Controls.QRCodeReader();
             this.rightClick_Menu = new Contact_Tracking.Custom_Controls.RightClick_Menu();
             this.tableLayoutPanel1.SuspendLayout();
@@ -121,19 +121,19 @@ namespace Contact_Tracking.Custom_Controls
             this.DateLabel.Text = "Wochentag, 01.01.2000";
             this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // Log_Label
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Log_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(457, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 48);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Log #1";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Log_Label.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.Log_Label.ForeColor = System.Drawing.Color.White;
+            this.Log_Label.Location = new System.Drawing.Point(457, 0);
+            this.Log_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.Log_Label.Name = "Log_Label";
+            this.Log_Label.Size = new System.Drawing.Size(115, 48);
+            this.Log_Label.TabIndex = 7;
+            this.Log_Label.Text = "Log #1";
+            this.Log_Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Count_Label
             // 
@@ -219,7 +219,7 @@ namespace Contact_Tracking.Custom_Controls
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Controls.Add(this.Count_Label, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.DateLabel, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Log_Label, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -227,16 +227,16 @@ namespace Contact_Tracking.Custom_Controls
             this.tableLayoutPanel2.Size = new System.Drawing.Size(572, 48);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
-            // label1
+            // Header
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 30);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Besuchererfassung";
+            this.Header.AutoSize = true;
+            this.Header.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.Header.ForeColor = System.Drawing.Color.White;
+            this.Header.Location = new System.Drawing.Point(4, 4);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(235, 30);
+            this.Header.TabIndex = 21;
+            this.Header.Text = "Besuchererfassung";
             // 
             // qrCodeReader
             // 
@@ -271,7 +271,7 @@ namespace Contact_Tracking.Custom_Controls
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.qrCodeReader);
             this.Controls.Add(this.rightClick_Menu);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Header);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -295,7 +295,7 @@ namespace Contact_Tracking.Custom_Controls
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.FlowLayoutPanel VisitorList;
         public System.Windows.Forms.Label DateLabel;
-        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label Log_Label;
         public System.Windows.Forms.Label Count_Label;
         public System.Windows.Forms.FlowLayoutPanel PersonList;
         public QRCodeReader qrCodeReader;
@@ -304,6 +304,6 @@ namespace Contact_Tracking.Custom_Controls
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Header;
     }
 }

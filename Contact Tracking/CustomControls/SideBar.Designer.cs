@@ -200,7 +200,7 @@ namespace Contact_Tracking.Custom_Controls
             // 
             // SideBar_Tracking
             // 
-            this.SideBar_Tracking.BackColor = System.Drawing.Color.Transparent;
+            this.SideBar_Tracking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.SideBar_Tracking.FlatAppearance.BorderSize = 0;
             this.SideBar_Tracking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.SideBar_Tracking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;

@@ -11,40 +11,20 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Drawing;
 using System.Globalization;
+using System.Security.Cryptography;
 
 namespace Contact_Tracking
 {
     public partial class Main : Form
     {
-        public static System.Resources.ResourceManager rm = new System.Resources.ResourceManager("Contact_Tracking.de_local", Assembly.GetExecutingAssembly());
-        //public static CultureInfo culture = new CultureInfo("en-US");
-
+        public DateTime _Date;
         public static bool initialized;
         public Main()
         {
-            switch (Properties.Settings.Default.Language)
-            {
-                case "EN":
-                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-                    break;
+            EnsureSettings();
 
-                case "DE":
-                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("de-DE");
-                    break;
-            }
-
-            Console.WriteLine("Main Tick - Init");
-
-            if (Properties.Settings.Default.DataPath.ToString() == "" || Properties.Settings.Default.ServerPath.ToString() == "")
-            {
-                Properties.Settings.Default.ServerPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Minecraft Server Manager";
-                Properties.Settings.Default.DataPath = @"C:\Program Files\derpy Solutions\Minecraft Server Manager\Data";
-                Properties.Settings.Default.Save();
-            }
-
-            Directory.CreateDirectory(Properties.Settings.Default.ServerPath);
             Directory.CreateDirectory(Properties.Settings.Default.DataPath);
-
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
 
             InitializeComponent();
             MyControls.Main = this;
@@ -52,14 +32,7 @@ namespace Contact_Tracking
             MyControls.TrackingTab = tracking;
             MyControls.PersonTab = personCard;
             MyControls.Stats = statistics_Tab;
-
-
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-            string version = fvi.FileVersion;
-            Console.WriteLine(version);
-            G.Ver.current = Version.Parse(version);
-
+            MyControls.SettingsTab = settings;
             MyControls.SideBar.CurrentVersion.Text = G.Ver.current.ToString();
 
             Loops loops = new Loops();
@@ -70,65 +43,85 @@ namespace Contact_Tracking
                 action();
             }
 
-            Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Bold.ttf");
-
-            if (!Fonts.IsFontInstalled("Century Gothic"))
-            {
-                Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Bold.ttf");
-                Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Bold_Italic.ttf");
-                Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Italic.ttf");
-                Fonts.InstallFont(Properties.Settings.Default.DataPath + @"\Fonts\CenturyGothic_Regular.ttf");
-
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu);
-            }
-
             Initialize();
-            initialized = true;
             SQL.Run();
-        }
 
-        private List<string> getIniFiles(int category = 1)
-        {
-            string[] fileArray = { };
-            switch (category)
-            {
-                case 1:
-                    {
-                        fileArray = Directory.GetFiles(Properties.Settings.Default.DataPath.ToString() + @"\Status Updates", "*.ini");
-                        break;
-                    }
-                case 2:
-                    {
-                        fileArray = Directory.GetFiles(Properties.Settings.Default.DataPath + @"\Status Updates\update", "*.ini");
-                        break;
-                    }
-                default:
-                    {
-                        break;
-                    }
-            }
+            initialized = true;
 
-            List<string> files = fileArray.ToList();
-            return files;
+            Language.Load();
         }
 
         public void Initialize()
         {
-            Console.WriteLine("[" + DateTime.Now + "]: " + "Initialize...");
+            ConsoleEx.WriteLine("Initialize ...");
+        }
+
+        public void EnsureSettings()
+        {
+            if (Properties.Settings.Default.DataPath == null || Properties.Settings.Default.DataPath == "")
+            {
+                Properties.Settings.Default.DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Contact Tracking";
+                Properties.Settings.Default.Save();
+            }
+            
+            if (Properties.Settings.Default.Language == null)
+            {
+                switch (CultureInfo.CurrentCulture.Name)
+                {
+                    case "en-US":
+                        Properties.Settings.Default.Language = "en-US";
+                        break;
+
+                    case "de-DE":
+                        Properties.Settings.Default.Language = "de-DE";
+                        break;
+
+                    default:
+                        Properties.Settings.Default.Language = "en-US";
+                        break;
+                }
+            }
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+            ConsoleEx.WriteLine("Starting Contact Tracking v." + version, ConsoleColor.Red);
+
+            G.Ver.current = Version.Parse(version);
+
+            if (Properties.Settings.Default.InstalledVersion != version || !Fonts.IsFontInstalled("Century Gothic"))
+            {
+                ConsoleEx.WriteLine("Installing fonts ...", ConsoleColor.Yellow);
+                Fonts.InstallFont(Application.StartupPath + @"\Data" + @"\Fonts\CenturyGothic_Bold.ttf");
+                Fonts.InstallFont(Application.StartupPath + @"\Data" + @"\Fonts\CenturyGothic_Bold_Italic.ttf");
+                Fonts.InstallFont(Application.StartupPath + @"\Data" + @"\Fonts\CenturyGothic_Italic.ttf");
+                Fonts.InstallFont(Application.StartupPath + @"\Data" + @"\Fonts\CenturyGothic_Regular.ttf");
+                Properties.Settings.Default.InstalledVersion = version;
+                Properties.Settings.Default.Save();
+            }
+
+            if (Properties.Settings.Default.SecurityKey == null || Properties.Settings.Default.SecurityIV == null || Properties.Settings.Default.SecurityIV == "" || Properties.Settings.Default.SecurityKey == "")
+            {
+                Aes aes = Aes.Create();
+
+                Properties.Settings.Default.SecurityKey = Convert.ToBase64String(aes.Key);
+                Properties.Settings.Default.SecurityIV = Convert.ToBase64String(aes.IV);
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void Main_FormClosing(Object sender, FormClosingEventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
             {
-                Console.WriteLine("Store Pos and Size");
+                ConsoleEx.WriteLine("Store Pos and Size", ConsoleColor.Green);
                 // save location and size if the state is normal
                 Properties.Settings.Default.Position = this.Location;
                 Properties.Settings.Default.Size = this.Size;
             }
             else
             {
-                Console.WriteLine("Store Restore Pos and Size");
+                ConsoleEx.WriteLine("Store Restore Pos and Size", ConsoleColor.Green);
                 // save the RestoreBounds if the form is minimized or maximized!
                 Properties.Settings.Default.Position = this.RestoreBounds.Location;
                 Properties.Settings.Default.Size = this.RestoreBounds.Size;            }

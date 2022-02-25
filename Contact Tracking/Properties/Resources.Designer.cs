@@ -71,16 +71,6 @@ namespace Contact_Tracking.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Century_Gothic_Fat {
-            get {
-                object obj = ResourceManager.GetObject("Century_Gothic_Fat", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap chart {
@@ -186,6 +176,16 @@ namespace Contact_Tracking.Properties {
         internal static System.Drawing.Bitmap circle_exclamationmark_red_16x16 {
             get {
                 object obj = ResourceManager.GetObject("circle_exclamationmark_red_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clear {
+            get {
+                object obj = ResourceManager.GetObject("clear", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

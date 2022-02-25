@@ -27,52 +27,57 @@ namespace Contact_Tracking.Custom_Controls
             if (Camera != null && Camera.Image != null)
             {
                 BarcodeReader barcodeReader = new BarcodeReader();
+
                 Result result = barcodeReader.Decode((Bitmap)Camera.Image);
                 if (result != null)
                 {
-                    Console.WriteLine(result);
                     var decrypted = Encryption.Decrypt(result.ToString());
                     QR_Text.Text = "Encrypted: " + Environment.NewLine + result.ToString() + Environment.NewLine +  Environment.NewLine + "Decrypted: " + Environment.NewLine + decrypted;
 
                     List<string> data = new List<string>();
                     string[] subs = decrypted.Split('|');
-                    Console.WriteLine("Split strings:");
+                    ConsoleEx.WriteLine("Split strings:");
                     foreach (var sub in subs)
                     {
-                        Console.WriteLine(sub);
                         data.Add(sub);
                     }
 
-                    if (data.Count >= 4)
+                    if (data.Count > 0 && data[0] == "derpySolutions")
                     {
-                        Console.WriteLine("count passed: " + data.Count);
-                        Console.WriteLine("data1: " + data[1] + "; data2: " + data[2] + "; data3:" + data[3]);
-                        var found = false;
-                        foreach (Person person in G.People)
+                        if (data.Count >= 4)
                         {
-                            if (person.FirstName == data[1] &&person.LastName == data[2] && person.DateOfBirth == data[3])
+                            ConsoleEx.WriteLine("FirstName: " + data[1] + "; LastName: " + data[2] + "; DateOfBirth:" + data[3]);
+                            var found = false;
+                            foreach (Person person in G.People)
                             {
-                                Console.WriteLine("Found '" + person.FirstName + " " + person.LastName + "' in our data base.");
-                                person.AddVisit();
-                                found = true;
+                                if (person.FirstName == data[1] && person.LastName == data[2] && person.DateOfBirth == data[3])
+                                {
+                                    ConsoleEx.WriteLine("Found '" + person.FirstName + " " + person.LastName + "' in our data base.");
+                                    person.LastVisit = DateTime.Now.ToString("d");
+                                    person.AddVisit();
+                                    person.Save();
+                                    found = true;
+                                }
                             }
-                        }
-                        if (!found)
-                        {
-                            Person person = new Person();
-                            person.FirstName = data[1];
-                            person.LastName = data[2];
-                            person.DateOfBirth = data[3];
-                            person.Sex = data[4];
-                            person.Address = data[5];
-                            person.Phone = data[6];
-                            person.EMail = data[7];
-                            person.MigrationBackground = bool.Parse(data[8]);
-                            person.ID = G.LastID + 1;
-                            Console.WriteLine("Add '" + person.FullName + "' with ID: " + person.ID);
-                            person.Add();
-                            person.Save();
-                            person.AddVisit();
+
+                            if (!found)
+                            {
+                                Person person = new Person();
+                                person.FirstName = data[1];
+                                person.LastName = data[2];
+                                person.DateOfBirth = data[3];
+                                person.Gender = data[4];
+                                person.Address = data[5];
+                                person.Phone = data[6];
+                                person.EMail = data[7];
+                                person.MigrationBackground = bool.Parse(data[8]);
+                                person.ID = G.LastID + 1;
+                                ConsoleEx.WriteLine("Add '" + person.FullName + "' with ID: " + person.ID);
+                                person.LastVisit = DateTime.Now.ToString("d");
+                                person.Add();
+                                person.Save();
+                                person.AddVisit();
+                            }
                         }
                     }
 
@@ -93,7 +98,13 @@ namespace Contact_Tracking.Custom_Controls
         }
         private void CaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Camera.Image = (Bitmap)eventArgs.Frame.Clone();
+
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            if (Properties.Settings.Default.FlipCamera)
+            {
+                bitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
+            Camera.Image = bitmap;
         }
         public void StartQR()
         {

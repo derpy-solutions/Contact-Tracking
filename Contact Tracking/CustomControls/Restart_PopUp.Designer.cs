@@ -40,7 +40,7 @@ namespace Contact_Tracking.Custom_Controls
             this.NoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.NoRestart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.NoRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NoRestart.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NoRestart.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.NoRestart.ForeColor = System.Drawing.Color.Transparent;
             this.NoRestart.Image = global::Contact_Tracking.Properties.Resources.stop;
             this.NoRestart.Location = new System.Drawing.Point(3, 164);
@@ -59,7 +59,7 @@ namespace Contact_Tracking.Custom_Controls
             this.Restart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Restart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.Restart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Restart.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Restart.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.Restart.ForeColor = System.Drawing.Color.Transparent;
             this.Restart.Image = global::Contact_Tracking.Properties.Resources.checkmark;
             this.Restart.Location = new System.Drawing.Point(261, 164);
@@ -95,7 +95,7 @@ namespace Contact_Tracking.Custom_Controls
             this.Controls.Add(this.Content);
             this.Controls.Add(this.Restart);
             this.Controls.Add(this.NoRestart);
-            this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RestartPopUp";
             this.Size = new System.Drawing.Size(517, 201);

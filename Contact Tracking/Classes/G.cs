@@ -15,15 +15,33 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 
 namespace Contact_Tracking
-{
-    public class G
+{   
+    public class ConsoleEx
     {
+        public static void WriteLine(string txt, ConsoleColor color = ConsoleColor.White)
+        {
+            var oldColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.WriteLine(Loops.Loop.timestamp + " " + txt.ToString());
+            Console.ForegroundColor = oldColor;
+        }
+    }
+    public class G
+    {        
+        public static DateTime DateZero;
+        public static string Key;
         public static int LastID = 1;
         public static int LastStatID = 0;
         public static List<Person> People = new List<Person>();
         public static List<Stat> Stats = new List<Stat>();
         public static Stat CurrentStat;
-
+        public static DateTime lastPW = DateTime.Now.AddDays(-1);
+        public static bool isPasswordRequired()
+        {
+            ConsoleEx.WriteLine("Required: " + Properties.Settings.Default.RequirePassword);
+            ConsoleEx.WriteLine("Time Since:" + DateTime.Now.Subtract(G.lastPW).TotalSeconds);
+            return Properties.Settings.Default.RequirePassword && DateTime.Now.Subtract(G.lastPW).TotalSeconds >= 60;
+        }
         public static int Years(DateTime start, DateTime end)
         {
             return (end.Year - start.Year - 1) +
@@ -32,7 +50,7 @@ namespace Contact_Tracking
         }
 
 
-        public static bool ProcessExists(int id)
+        public static bool ProcesGenderists(int id)
         {
             return Process.GetProcesses().Any(x => x.Id == id);
         }
@@ -55,6 +73,7 @@ namespace Contact_Tracking
             return colors;
         }
 
+        public static List<Color> Gradient_Count;
         public static string Language = "EN";
         public static List<string> ServerFoldersList = new List<string>();
         public static string[] ServerFolders;

@@ -117,8 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AddVisit" xml:space="preserve">
+    <value>Besuch erfassen</value>
+  </data>
+  <data name="AgeGroup" xml:space="preserve">
+    <value>Altersgruppe</value>
+  </data>
+  <data name="CheckUpdates" xml:space="preserve">
+    <value>Nach Updates suchen</value>
+  </data>
+  <data name="CoronaProof" xml:space="preserve">
+    <value>Corona Nachweis</value>
+  </data>
+  <data name="Covid" xml:space="preserve">
+    <value>Covid</value>
+  </data>
+  <data name="CovidDescription" xml:space="preserve">
+    <value>Der Test- und Impfstatus einer Person kann gespeichert werden, sodass ein erneutes Vorzeigen beim nächsten Besuch wegfällt.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="CreateQR" xml:space="preserve">
+    <value>Erstelle QR</value>
+  </data>
   <data name="Current" xml:space="preserve">
     <value>Aktuell</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Geburtstag</value>
+  </data>
+  <data name="DaysToSave" xml:space="preserve">
+    <value>Tage speichern</value>
+  </data>
+  <data name="DaysToShow" xml:space="preserve">
+    <value>Tage anzeigen</value>
+  </data>
+  <data name="DeletePerson" xml:space="preserve">
+    <value>Person Löschen</value>
   </data>
   <data name="divers" xml:space="preserve">
     <value>divers</value>
@@ -128,11 +167,29 @@
 
 Willst du das Update jetzt installieren?</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="EMail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
   <data name="Export" xml:space="preserve">
     <value>Exportieren</value>
   </data>
   <data name="female" xml:space="preserve">
     <value>weiblich</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="FlipCamera" xml:space="preserve">
+    <value>Kamera spiegeln</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="GenerateNew" xml:space="preserve">
+    <value>Neu generieren</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Installiere</value>
@@ -145,14 +202,23 @@ Jetzt neustarten?</value>
   <data name="Language" xml:space="preserve">
     <value>Sprache</value>
   </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
   <data name="male" xml:space="preserve">
     <value>männlich</value>
+  </data>
+  <data name="MaxVisists" xml:space="preserve">
+    <value>Max. Besucher</value>
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Menü</value>
   </data>
   <data name="migration_background" xml:space="preserve">
     <value>Migrationshintergrund</value>
+  </data>
+  <data name="MinAge" xml:space="preserve">
+    <value>Nachweis ab Alter</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>Neu</value>
@@ -166,8 +232,35 @@ Jetzt neustarten?</value>
   <data name="NoRestart" xml:space="preserve">
     <value>Nicht Neustarten</value>
   </data>
+  <data name="Note" xml:space="preserve">
+    <value>Notiz</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
   <data name="Path" xml:space="preserve">
     <value>Pfad</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Persönliche Daten</value>
+  </data>
+  <data name="PersonalDataDescription" xml:space="preserve">
+    <value>Perönliche Daten werden mit deinem einzigartigem Schlüssel verschlüsselt und in einer Datenbank gespeichert.</value>
+  </data>
+  <data name="PersonalID" xml:space="preserve">
+    <value>Persönliche ID</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="QRCode" xml:space="preserve">
+    <value>QR Code</value>
+  </data>
+  <data name="RequirePassword" xml:space="preserve">
+    <value>Verlange Passwort zum Bearbeiten von Personen</value>
+  </data>
+  <data name="ResetChanges" xml:space="preserve">
+    <value>Änderungen zurücksetzen</value>
   </data>
   <data name="ResetSettings" xml:space="preserve">
     <value>Einstellungen zurücksetzen</value>
@@ -181,7 +274,13 @@ Jetzt neustarten?</value>
 Jetzt neustarten?</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Speicher</value>
+    <value>Speichern</value>
+  </data>
+  <data name="SaveStats" xml:space="preserve">
+    <value>Statistik speichern</value>
+  </data>
+  <data name="SaveVisitors" xml:space="preserve">
+    <value>Besucher speichern</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Suche</value>
@@ -189,8 +288,21 @@ Jetzt neustarten?</value>
   <data name="SearchForUpdates" xml:space="preserve">
     <value>Automatisch nach Updates suchen</value>
   </data>
+  <data name="Security" xml:space="preserve">
+    <value>Sicherheit</value>
+  </data>
+  <data name="SecurityDescription" xml:space="preserve">
+    <value>Um ausgewählte Aktionen auszuführen ist ein Passwort erforderlich.
+Alle Daten welche durch dieses Programm gespeichert werden, werden verschlüsselt mit einem einzigartigen Schlüssel. Diesen Schlüssel zu ändern bedeutet, dass alle QR Codes, welche bereits ausgegeben wurden, nicht mehr funktionieren.</value>
+  </data>
+  <data name="SecurityKey" xml:space="preserve">
+    <value>Sicherheitsschlüssel</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
+  </data>
+  <data name="ShowBadge" xml:space="preserve">
+    <value>Zeige Abzeichen</value>
   </data>
   <data name="Show_ToolTips" xml:space="preserve">
     <value>Zeige Kurzinfos (Tooltips)</value>
@@ -199,6 +311,34 @@ Jetzt neustarten?</value>
     <value>Um die geänderten Kurzinfoeinstellungen anzuwenden muss das Programm neugestartet werden.
 
 Jetzt neustarten?</value>
+  </data>
+  <data name="SplitLog" xml:space="preserve">
+    <value>Log aufteilen</value>
+  </data>
+  <data name="SplitLogAt" xml:space="preserve">
+    <value>Aufteilen um (24h)</value>
+  </data>
+  <data name="SplitStats" xml:space="preserve">
+    <value>Statistik aufteilen</value>
+  </data>
+  <data name="SplitStatsAt" xml:space="preserve">
+    <value>Aufteilen um (24h)</value>
+  </data>
+  <data name="StatDescription" xml:space="preserve">
+    <value>Besuche können anonym gesammelt und angezeigt werden. 
+Die Statistik speichert nur:
+- Altersgruppe
+- Geschlecht
+- Migrationshintergrund</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistik</value>
+  </data>
+  <data name="Tested" xml:space="preserve">
+    <value>Getestet</value>
+  </data>
+  <data name="TestedDuration" xml:space="preserve">
+    <value>Gestestet (Stunden)</value>
   </data>
   <data name="to" xml:space="preserve">
     <value>auf</value>
@@ -237,8 +377,36 @@ Jetzt Installieren?</value>
 
 Möchtest du jetzt updaten?</value>
   </data>
+  <data name="UserInterface" xml:space="preserve">
+    <value>Benutzeroberfläche</value>
+  </data>
+  <data name="Vaccinated" xml:space="preserve">
+    <value>Geimpft</value>
+  </data>
+  <data name="VaccinatedDuration" xml:space="preserve">
+    <value>Impfschutz (Tage)</value>
+  </data>
+  <data name="Visitors" xml:space="preserve">
+    <value>Besucher</value>
+  </data>
   <data name="VisitorStats" xml:space="preserve">
     <value>Besucher Statistik</value>
+  </data>
+  <data name="VisitorTracking" xml:space="preserve">
+    <value>Besuchererfassung</value>
+  </data>
+  <data name="VisitsDescription" xml:space="preserve">
+    <value>Besucher können verschlüsselt in der Datenbank gespeichert werden.
+Ist diese Option nicht aktiviert, gehen alle Besuche verloren, wenn das Programm geschlossen wird.</value>
+  </data>
+  <data name="WipePeople" xml:space="preserve">
+    <value>Personen löschen</value>
+  </data>
+  <data name="WipeStats" xml:space="preserve">
+    <value>Statistik löschen</value>
+  </data>
+  <data name="WipeVisits" xml:space="preserve">
+    <value>Besucherlogs löschen</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>

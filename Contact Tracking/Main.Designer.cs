@@ -33,12 +33,13 @@ namespace Contact_Tracking
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.RunLoop = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.statistics_Tab = new Contact_Tracking.Custom_Controls.Statistics_Ctrl();
+            this.runPopUp = new Contact_Tracking.CustomControls.RunPopUp();
             this.SideBar = new Contact_Tracking.Custom_Controls.SideBar();
             this.tracking = new Contact_Tracking.Custom_Controls.TrackingTab();
             this.restartPopUp = new Contact_Tracking.Custom_Controls.RestartPopUp();
             this.settings = new Contact_Tracking.Custom_Controls.Settings();
             this.personCard = new Contact_Tracking.Custom_Controls.PersonCard();
+            this.statistics_Tab = new Contact_Tracking.Custom_Controls.Statistics_Ctrl();
             this.SuspendLayout();
             // 
             // toolTip1
@@ -47,20 +48,21 @@ namespace Contact_Tracking
             this.toolTip1.InitialDelay = 50;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // statistics_Tab
+            // runPopUp
             // 
-            this.statistics_Tab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statistics_Tab.BackColor = System.Drawing.Color.Transparent;
-            this.statistics_Tab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statistics_Tab.ForeColor = System.Drawing.Color.White;
-            this.statistics_Tab.Location = new System.Drawing.Point(86, 0);
-            this.statistics_Tab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.statistics_Tab.Name = "statistics_Tab";
-            this.statistics_Tab.Size = new System.Drawing.Size(1070, 795);
-            this.statistics_Tab.TabIndex = 25;
-            this.statistics_Tab.Visible = false;
+            this.runPopUp._Button1 = null;
+            this.runPopUp._Button2 = null;
+            this.runPopUp._Text = null;
+            this.runPopUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.runPopUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.runPopUp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runPopUp.ForeColor = System.Drawing.Color.White;
+            this.runPopUp.Location = new System.Drawing.Point(310, 280);
+            this.runPopUp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.runPopUp.Name = "runPopUp";
+            this.runPopUp.Size = new System.Drawing.Size(550, 275);
+            this.runPopUp.TabIndex = 26;
+            this.runPopUp.Visible = false;
             // 
             // SideBar
             // 
@@ -107,10 +109,16 @@ namespace Contact_Tracking
             // 
             // settings
             // 
-            this.settings.Location = new System.Drawing.Point(93, 13);
+            this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.settings.BackColor = System.Drawing.Color.Transparent;
+            this.settings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settings.ForeColor = System.Drawing.Color.White;
+            this.settings.Location = new System.Drawing.Point(86, 0);
             this.settings.Margin = new System.Windows.Forms.Padding(4);
             this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(150, 150);
+            this.settings.Size = new System.Drawing.Size(1070, 795);
             this.settings.TabIndex = 24;
             this.settings.Visible = false;
             // 
@@ -130,6 +138,21 @@ namespace Contact_Tracking
             this.personCard.TabIndex = 23;
             this.personCard.Visible = false;
             // 
+            // statistics_Tab
+            // 
+            this.statistics_Tab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.statistics_Tab.BackColor = System.Drawing.Color.Transparent;
+            this.statistics_Tab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statistics_Tab.ForeColor = System.Drawing.Color.White;
+            this.statistics_Tab.Location = new System.Drawing.Point(86, 0);
+            this.statistics_Tab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.statistics_Tab.Name = "statistics_Tab";
+            this.statistics_Tab.Size = new System.Drawing.Size(1070, 795);
+            this.statistics_Tab.TabIndex = 25;
+            this.statistics_Tab.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -137,6 +160,7 @@ namespace Contact_Tracking
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(1159, 797);
+            this.Controls.Add(this.runPopUp);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.tracking);
             this.Controls.Add(this.restartPopUp);
@@ -167,5 +191,6 @@ namespace Contact_Tracking
         public Custom_Controls.PersonCard personCard;
         public Custom_Controls.Settings settings;
         private Custom_Controls.Statistics_Ctrl statistics_Tab;
+        public CustomControls.RunPopUp runPopUp;
     }
 }

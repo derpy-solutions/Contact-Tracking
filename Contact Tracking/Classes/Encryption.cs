@@ -17,7 +17,7 @@ namespace Contact_Tracking
         }
 
 
-        public static string Encrypt(string PlainText)
+        public static string Encrypt_OG(string PlainText)
 
         {
             var key = Properties.Settings.Default.SecurityKey;
@@ -50,13 +50,13 @@ namespace Contact_Tracking
                 return Convert.ToBase64String(array);
             }
 
-           // Console.WriteLine("Not able to encrypt:");
-            // Console.WriteLine(PlainText);
+            // ConsoleEx.WriteLine("Not able to encrypt:");
+            // ConsoleEx.WriteLine(PlainText);
             return PlainText;
         }
 
 
-        public static string Decrypt(string CipherText)
+        public static string Decrypt_OG(string CipherText)
 
         {
             var key = Properties.Settings.Default.SecurityKey;
@@ -85,9 +85,101 @@ namespace Contact_Tracking
                 }
             }
 
-            //Console.WriteLine("Not able to deciper:");
-            //Console.WriteLine(CipherText);
+            //ConsoleEx.WriteLine("Not able to deciper:");
+            //ConsoleEx.WriteLine(CipherText);
             return CipherText;
+        }
+
+        public static string Encrypt(string plainText)
+        {
+            var Key = Convert.FromBase64String(Properties.Settings.Default.SecurityKey);
+            var IV = Convert.FromBase64String(Properties.Settings.Default.SecurityIV);
+
+            if (plainText != null && plainText.Length > 0)
+            {
+                byte[] encrypted;
+
+                // Create an AesCryptoServiceProvider object
+                // with the specified key and IV.
+                using (AesCryptoServiceProvider aesAlg = new AesCryptoServiceProvider())
+                {
+                    aesAlg.Key = Key;
+                    aesAlg.IV = IV;
+
+                    // Create an encryptor to perform the stream transform.
+                    ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                    // Create the streams used for encryption.
+                    using (MemoryStream msEncrypt = new MemoryStream())
+                    {
+                        using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                        {
+                            using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                            {
+                                //Write all data to the stream.
+                                swEncrypt.Write(plainText);
+                            }
+                            encrypted = msEncrypt.ToArray();
+                        }
+                    }
+                }
+
+                // Return the encrypted bytes from the memory stream.
+                return Convert.ToBase64String(encrypted);
+            }
+            else
+                return plainText;
+        }
+
+        public static string Decrypt(string encrypted)
+        {
+
+            if (encrypted != null && IsBase64String(encrypted))
+            {
+                byte[] cipherText = Convert.FromBase64String(encrypted);
+
+                if (cipherText != null && cipherText.Length > 0)
+                {
+                    var Key = Convert.FromBase64String(Properties.Settings.Default.SecurityKey);
+                    var IV = Convert.FromBase64String(Properties.Settings.Default.SecurityIV);
+
+                    // Declare the string used to hold
+                    // the decrypted text.
+                    string plaintext = null;
+
+                    // Create an AesCryptoServiceProvider object
+                    // with the specified key and IV.
+                    using (AesCryptoServiceProvider aesAlg = new AesCryptoServiceProvider())
+                    {
+                        aesAlg.Key = Key;
+                        aesAlg.IV = IV;
+
+                        // Create a decryptor to perform the stream transform.
+                        ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                        // Create the streams used for decryption.
+                        using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+                        {
+                            using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                            {
+                                using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                                {
+
+                                    // Read the decrypted bytes from the decrypting stream
+                                    // and place them in a string.
+                                    plaintext = srDecrypt.ReadToEnd();
+                                }
+                            }
+                        }
+                    }
+
+                    return plaintext;
+                }
+                else
+                return encrypted;
+            }
+            else
+                return encrypted;
         }
     }
 }

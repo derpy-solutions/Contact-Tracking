@@ -45,8 +45,9 @@ namespace Contact_Tracking
             }
             else
             {
-                bitmap = barcodeWriter.Write(Encryption.Encrypt(""));
+                bitmap = barcodeWriter.Write(Encryption.Encrypt("Empty"));
             }
+
             Bitmap logo = new Bitmap(Properties.Resources.derpy_50x50);
             Graphics g = Graphics.FromImage(bitmap);
             g.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));

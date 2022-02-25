@@ -68,13 +68,13 @@ namespace Contact_Tracking.Custom_Controls
                     {
                         path = path + @"\Programs";
 
-                        Console.WriteLine("Startup Folder Exists.");
-                        Console.WriteLine(path);
-                        Console.WriteLine(path + @"\Contact Tracking.lnk");
+                        ConsoleEx.WriteLine("Startup Folder Exists.");
+                        ConsoleEx.WriteLine(path);
+                        ConsoleEx.WriteLine(path + @"\Contact Tracking.lnk");
                         if (File.Exists(path + @"\Contact Tracking.lnk"))
                         {
 
-                            Console.WriteLine("Shortcut Exists.");
+                            ConsoleEx.WriteLine("Shortcut Exists.");
 
                             System.Diagnostics.Process process = new System.Diagnostics.Process();
                             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo("cmd.exe");

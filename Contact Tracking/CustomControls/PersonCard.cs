@@ -27,6 +27,47 @@ namespace Contact_Tracking.Custom_Controls
         public PersonCard()
         {
             InitializeComponent();
+            Language.Actions.Add(LoadLanguage);
+
+            Tested_Picker.Value = DateTime.Parse("01.01.1900");
+            Vaccinated_Picker.Value = DateTime.Parse("01.01.1900");
+            DateOfBirth_Picker.Value = DateTime.Parse("01.01.1900");
+        }
+
+        public void LoadLanguage()
+        {
+            New_Button.Text = "  " + Properties.strings.New;
+            PersonID.Text = Properties.strings.PersonalID;
+            Label_FirstName.Text = Properties.strings.FirstName;
+            Label_LastName.Text = Properties.strings.LastName;
+            Label_DateOfBirth.Text = Properties.strings.DateOfBirth;
+            Label_Address.Text = Properties.strings.Address;
+            Label_Phone.Text = Properties.strings.Phone;
+            Label_EMail.Text = Properties.strings.EMail;
+            Label_Note.Text = Properties.strings.Note;
+            Delete.Text = "  " + Properties.strings.DeletePerson;
+
+            Statistics_Label.Text = Properties.strings.Statistics;
+            Label_Gender.Text = Properties.strings.Gender;
+            Label_AgeGroup.Text = Properties.strings.AgeGroup;
+            Migration_ChckBx._Text = Properties.strings.migration_background;
+
+            QRCode_Label.Text = Properties.strings.QRCode;
+            CreateQR_Button.Text = "  " + Properties.strings.Save;
+
+            Label_CoronaProof.Text = Properties.strings.CoronaProof;
+            Label_Tested.Text = Properties.strings.Tested;
+            Label_Vaccinated.Text = Properties.strings.Vaccinated;
+
+            Save.Text = "  " + Properties.strings.Save;
+            Discard.Text = "  " + Properties.strings.ResetChanges;
+
+            GenderCombo.Items.Clear();
+            GenderCombo.Items.Add(Properties.strings.divers);
+            GenderCombo.Items.Add(Properties.strings.female);
+            GenderCombo.Items.Add(Properties.strings.male);
+
+            GenderCombo.SelectedItem = Properties.strings.divers;
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -35,12 +76,16 @@ namespace Contact_Tracking.Custom_Controls
             {
                 person.FirstName = temp.FirstName;
                 person.LastName = temp.LastName;
-                person.Sex = temp.Sex;
                 person.DateOfBirth = temp.DateOfBirth;
                 person.Address = temp.Address;
                 person.Phone = temp.Phone;
                 person.EMail = temp.EMail;
                 person.Note = temp.Note;
+
+                person.MigrationBackground = temp.MigrationBackground;
+                person.AgeCategory = temp.AgeCategory;
+                person.Gender = temp.Gender;
+
                 person.Tested = temp.Tested;
                 person.Vaccinated = temp.Vaccinated;
 
@@ -146,12 +191,16 @@ namespace Contact_Tracking.Custom_Controls
 
                 FirstName_TextBox.Text = null;
                 LastName_TextBox.Text = null;
-                DateOfBirth_Picker.Value = DateTime.Now;
+
+                Tested_Picker.Value = DateTime.Parse("01.01.1900");
+                Vaccinated_Picker.Value = DateTime.Parse("01.01.1900");
+                DateOfBirth_Picker.Value = DateTime.Parse("01.01.1900");
+
                 Address_TextBox.Text = null;
                 EMail_TextBox.Text = null;
                 Note_TextBox.Text = null;
                 Phone_TextBox.Text = null;
-                PersonID.Text = "Persönliche ID: " + 0;
+                PersonID.Text = Properties.strings.PersonalID + ": " + 0;
                 QR_Code.Image = MyQRCode.Create(person);
             }
 
@@ -166,20 +215,20 @@ namespace Contact_Tracking.Custom_Controls
             }
         }
 
-        private void SexCombo_SelectedIndexChanged(object sender, EventArgs e)
+        private void GenderCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (person != null && SexCombo.SelectedItem != null)
+            if (person != null && GenderCombo.SelectedItem != null)
             {
-                switch (SexCombo.SelectedItem)
+                switch (GenderCombo.SelectedItem)
                 {
                     case "männlich":
-                        temp.Sex = "male";
+                        temp.Gender = "male";
                         break;
                     case "divers":
-                        temp.Sex = "divers";
+                        temp.Gender = "divers";
                         break;
                     case "weiblich":
-                        temp.Sex = "female";
+                        temp.Gender = "female";
                         break;
                 }
                 FlashSaveButton();
@@ -193,6 +242,9 @@ namespace Contact_Tracking.Custom_Controls
                 temp.DateOfBirth = this.DateOfBirth_Picker.Value.ToString("d");
                 FlashSaveButton();
                 QR_Code.Image = temp.QRCode;
+                temp.AgeCategory = null;
+
+                AgeCategory_Combo.SelectedItem = temp.getAgeCategory();
             }
         }
 
@@ -261,7 +313,7 @@ namespace Contact_Tracking.Custom_Controls
 
         private void FlashSaveButton()
         {
-            if (this.Visible)
+            if (this.Visible && this.FirstName_TextBox.Text != null && this.FirstName_TextBox.Text != "")
             {
                 timerStart = DateTime.Now;
                 FlashingTimer.Start();
@@ -273,6 +325,40 @@ namespace Contact_Tracking.Custom_Controls
             FlashingTimer.Stop();
             flashingColors = null;
             Save.BackColor = Color.FromArgb(255, 64, 64, 64);
+        }
+
+        private void Migration_ChckBx__Clicked(object sender, EventArgs e)
+        {
+            temp.MigrationBackground = Migration_ChckBx.isChecked();
+            FlashSaveButton();
+            QR_Code.Image = temp.QRCode;
+        }
+
+        private void AgeCategory_Combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AgeCategory_Combo.SelectedIndex > -1)
+            {
+                temp.AgeCategory = AgeCategory_Combo.SelectedItem.ToString();
+                FlashSaveButton();
+            }
+        }
+
+        private void Clear_Tested_Click(object sender, EventArgs e)
+        {
+            Tested_Picker.Value = DateTime.Parse("01.01.1900");
+            temp.Tested = null;
+        }
+
+        private void Clear_Vaccinated_Click(object sender, EventArgs e)
+        {
+            Vaccinated_Picker.Value = DateTime.Parse("01.01.1900");
+            temp.Vaccinated = null;
+        }
+
+        private void Clear_DateOfBirth_Click(object sender, EventArgs e)
+        {
+            DateOfBirth_Picker.Value = DateTime.Parse("01.01.1900");
+            temp.DateOfBirth = null;
         }
     }
 }

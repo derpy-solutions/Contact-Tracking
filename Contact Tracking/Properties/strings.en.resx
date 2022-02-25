@@ -117,4 +117,193 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AddVisit" xml:space="preserve">
+    <value>Add Visit</value>
+  </data>
+  <data name="AgeGroup" xml:space="preserve">
+    <value>Age Group</value>
+  </data>
+  <data name="CoronaProof" xml:space="preserve">
+    <value>Corona Proof</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateQR" xml:space="preserve">
+    <value>Create QR</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="DeletePerson" xml:space="preserve">
+    <value>Delete Person</value>
+  </data>
+  <data name="divers" xml:space="preserve">
+    <value>queer</value>
+  </data>
+  <data name="DownloadComplete" xml:space="preserve">
+    <value>The Download is complete!
+
+Would you like to install now?</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EMail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>female</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="InstalledFonts" xml:space="preserve">
+    <value>To use the fonts we installed just now the application has to be restarted 
+
+Restart now?</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>male</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="migration_background" xml:space="preserve">
+    <value>migration background</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Newest</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoRestart" xml:space="preserve">
+    <value>Don't Restart</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="PersonalID" xml:space="preserve">
+    <value>Personal ID</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="ResetChanges" xml:space="preserve">
+    <value>Reset Changes</value>
+  </data>
+  <data name="ResetSettings" xml:space="preserve">
+    <value>Reset Settings</value>
+  </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Restart_Language" xml:space="preserve">
+    <value>To apply the language settings the application has to be restarted 
+
+Restart now?</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchForUpdates" xml:space="preserve">
+    <value>Automatically search for Updates</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Show_ToolTips" xml:space="preserve">
+    <value>Show tooltips</value>
+  </data>
+  <data name="Show_ToolTips_Changed" xml:space="preserve">
+    <value>To apply the tooltip settings the application has to be restarted 
+
+Restart now?</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="Tested" xml:space="preserve">
+    <value>Tested</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="Tracking" xml:space="preserve">
+    <value>Tracking</value>
+  </data>
+  <data name="ttp_Browse" xml:space="preserve">
+    <value>Browse to your</value>
+  </data>
+  <data name="ttp_DataPath" xml:space="preserve">
+    <value>The Folder your Data for the application is stored in.</value>
+  </data>
+  <data name="ttp_New" xml:space="preserve">
+    <value>Create a new</value>
+  </data>
+  <data name="ttp_NoInternet" xml:space="preserve">
+    <value>We can not reach the github repo. Please check your internet connection!</value>
+  </data>
+  <data name="ttp_Reset" xml:space="preserve">
+    <value>Reset your settings to the default settings.</value>
+  </data>
+  <data name="ttp_UpdateAvailable" xml:space="preserve">
+    <value>There is an update available, please update!</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdateInstall" xml:space="preserve">
+    <value>An Update was downloaded already but not installed!
+
+Install it now?</value>
+  </data>
+  <data name="UpdatePopUp" xml:space="preserve">
+    <value>There is an update available!
+
+Would you like to update?</value>
+  </data>
+  <data name="Vaccinated" xml:space="preserve">
+    <value>Vaccinated</value>
+  </data>
+  <data name="VisitorStats" xml:space="preserve">
+    <value>Visitor Stats</value>
+  </data>
+  <data name="VisitorTracking" xml:space="preserve">
+    <value>Visitor Tracking</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
 </root>

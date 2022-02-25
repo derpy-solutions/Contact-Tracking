@@ -36,10 +36,8 @@ namespace Contact_Tracking
                     {
                         MyControls.Main.toolTip1.SetToolTip(MyControls.SideBar.UpdateNotification, Properties.strings.ttp_UpdateAvailable);
                     }
-                    Console.WriteLine("UPDATE?!");
-                    Console.WriteLine("Dismiss Update: " + dismissUpdate);
 
-                    if (File.Exists(Properties.Settings.Default.DataPath + @"\" + G.Ver.newest.ToString() + " Contact.Tracking..Setup.msi"))
+                    if (File.Exists(Properties.Settings.Default.DataPath + @"\" + G.Ver.newest.ToString() + " Contact.Tracking.Setup.msi"))
                     {
                         MyControls.SideBar.UpdateButton.Text = "         " + Properties.strings.Install + " Update";
                         MyControls.SideBar.UpdateButton.Image = Properties.Resources.unbox;
@@ -100,7 +98,7 @@ namespace Contact_Tracking
                         System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
                         System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
                         string version = fvi.FileVersion;
-                        Console.WriteLine(version);
+                        ConsoleEx.WriteLine(version);
                         current = Version.Parse(version);
 
                         MyControls.SideBar.CurrentVersion.Text = current.ToString();
@@ -118,7 +116,7 @@ namespace Contact_Tracking
             {
                 if (force || DateTime.Now.Subtract(UpdateCheckTime).TotalMinutes >= 60)
                 {
-                    Console.WriteLine("Time Since Update: " + DateTime.Now.Subtract(UpdateCheckTime).TotalMinutes);
+                    ConsoleEx.WriteLine("Time Since Update: " + DateTime.Now.Subtract(UpdateCheckTime).TotalMinutes);
                     UpdateCheckTime = DateTime.Now;
                     hasInternet = HasInternetConnection(2500);
 
@@ -189,14 +187,13 @@ namespace Contact_Tracking
                 return current_releases;
             }
 
-            var str = GetReleases("derpy-solutions", "Contact-Tracking-Manager");
+            var str = GetReleases("derpy-solutions", "Contact-Tracking");
 
             var releases = JsonConvert.DeserializeObject<List<Root>>(str);
 
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
-            Console.WriteLine(version);
             G.Ver.current = Version.Parse(version);
             var update = false;
             var url = "";
@@ -231,12 +228,11 @@ namespace Contact_Tracking
 
             if (update)
             {
-                Console.WriteLine("There is an update available!");
+                ConsoleEx.WriteLine("There is an update available!", ConsoleColor.Green);
                 G.Ver.url = url;
                 return true;
             }
-
-            Console.WriteLine("You are currently using the newest version!");
+            ConsoleEx.WriteLine("You are currently using the newest version!", ConsoleColor.Green);
             return false;
         }        
     }

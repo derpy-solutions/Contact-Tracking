@@ -41,14 +41,13 @@ namespace Contact_Tracking.Custom_Controls
         public TrackingTab()
         {
             InitializeComponent();
-            DateLabel.Text = DateTime.Now.ToString("D");
+            Language.Actions.Add(LoadLanguage);
         }
 
-
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        public void LoadLanguage()
         {
-
+            DateLabel.Text = DateTime.Now.ToString("D");
+            Header.Text = Properties.strings.VisitorTracking;
         }
 
         private void VisitorList_SizeChanged(object sender, EventArgs e)
@@ -67,6 +66,8 @@ namespace Contact_Tracking.Custom_Controls
                 if (ctrl.person != null) 
                 {
                     ctrl.person.AddVisit();
+                    ctrl.person.LastVisit = DateTime.Now.ToString("d");
+                    ctrl.person.Save();
                 }
 
                 this.active_personListItem = null;
@@ -129,11 +130,25 @@ namespace Contact_Tracking.Custom_Controls
                 rightClick_Menu.Visible = false;
             }
         }
-
-        private void VisitorList_ControlAdded(object sender, ControlEventArgs e)
+        public void RefreshCount()
         {
             Count_Label.Text = VisitorList.Controls.Count + "/" + Properties.Settings.Default.MaxVisits;
 
+            int left = Properties.Settings.Default.MaxVisits - VisitorList.Controls.Count;
+            if (G.Gradient_Count == null)
+            {
+                G.Gradient_Count = G.GetGradients(Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0))))), Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))), 100);
+            }
+
+            int filled = Convert.ToInt32(Convert.ToDecimal(VisitorList.Controls.Count) / Convert.ToDecimal(Properties.Settings.Default.MaxVisits) * 100);
+
+            int count = Math.Min(100, Math.Max(filled, 1));
+            Count_Label.ForeColor = G.Gradient_Count[count -1];
+        }
+
+        private void VisitorList_ControlAdded(object sender, ControlEventArgs e)
+        {
+            RefreshCount();
             var offset = 0;
             if (VisitorList.Controls.Count * 20 > VisitorList.Height)
             {
@@ -148,7 +163,7 @@ namespace Contact_Tracking.Custom_Controls
 
         private void VisitorList_ControlRemoved(object sender, ControlEventArgs e)
         {
-            Count_Label.Text = VisitorList.Controls.Count + "/" + Properties.Settings.Default.MaxVisits;
+            RefreshCount();
 
             var offset = 0;
             if (VisitorList.Controls.Count * 20 > VisitorList.Height)

@@ -17,14 +17,58 @@ namespace Contact_Tracking.Custom_Controls
         {
             InitializeComponent();
 
+            Inits.Voids.Add(Init);
+            Language.Actions.Add(LoadLanguage);
+
+
+        }
+
+        public void LoadLanguage()
+        {
             SideBar_Menu.Text = "         " + Properties.strings.Menu;
             SideBar_Tracking.Text = "         " + Properties.strings.Tracking;
             SideBar_Settings.Text = "         " + Properties.strings.Settings;
             UpdateButton.Text = "         " + Properties.strings.Update;
+            Stats_Button.Text = "         " + Properties.strings.Statistics;
+            SideBar_Create.Text = "         " + Properties.strings.Create;
             CurrentLabel.Text = Properties.strings.Current + ":";
             NewestLabel.Text = Properties.strings.Newest + ":";
+        }
 
-            Inits.Voids.Add(Init);
+        public class TabButton
+        {
+            public Control tab;
+            public Button button;
+        }
+
+        public void SwitchTab(Button button)
+        {
+            List<TabButton> tabs = new List<TabButton>();
+            tabs.Add( new TabButton() { tab = MyControls.TrackingTab, button = SideBar_Tracking });
+            tabs.Add(new TabButton() { tab = MyControls.PersonTab, button = SideBar_Create });
+            tabs.Add(new TabButton() { tab = MyControls.Stats, button = Stats_Button });
+            tabs.Add(new TabButton() { tab = MyControls.SettingsTab, button = SideBar_Settings });
+
+            foreach (TabButton tabButton in tabs)
+            {
+                if (tabButton.button != button)
+                {
+                    tabButton.button.BackColor = Color.Transparent;
+                    tabButton.tab.Hide();
+                }
+                else
+                {
+                    tabButton.button.BackColor = Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+                    tabButton.tab.Show();
+                }
+            }
+
+            if (this.Width >= this.MaximumSize.Width)
+            {
+                sidebarExpand = true;
+                SideBarTimer.Start();
+            }
+            CurrentLabel.Focus();
         }
 
         public void Init()
@@ -63,54 +107,18 @@ namespace Contact_Tracking.Custom_Controls
 
         private void SideBar_Servers_Click(object sender, EventArgs e)
         {
-            if (this.Width >= this.MaximumSize.Width)
-            {
-                sidebarExpand = true;
-                SideBarTimer.Start();
-            }
-
-            var tracking = this.ParentForm.Controls["tracking"];
-            tracking.Show();
-
-            var personCard = this.ParentForm.Controls["personCard"];
-            personCard.Hide();
-
-            var settings = this.ParentForm.Controls["settings"];
-            settings.Hide();
-
-            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
-            statistics_Tab.Hide();
-            //       this.Parent.Controls[""]
+            SwitchTab(SideBar_Tracking);
         }
 
         private void SideBar_Settings_Click(object sender, EventArgs e)
         {
-            if (this.Width >= this.MaximumSize.Width)
-            {
-                sidebarExpand = true;
-                SideBarTimer.Start();
-            }
-
-            var tracking = this.ParentForm.Controls["tracking"];
-            tracking.Hide();
-
-            var personCard = this.ParentForm.Controls["personCard"];
-            personCard.Hide();
-
-            var settings = this.ParentForm.Controls["settings"];
-            settings.Show();
-
-            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
-            statistics_Tab.Hide();
+            SwitchTab(SideBar_Settings);
         }
         public void DownloadProgressCallback4(object sender, DownloadProgressChangedEventArgs e)
         {
             // Displays the operation identifier, and the transfer progress.
-            Console.WriteLine("{0}    downloaded {1} of {2} bytes. {3} % complete...",
-                (string)e.UserState,
-                e.BytesReceived,
-                e.TotalBytesToReceive,
-                e.ProgressPercentage);
+            string progress = $"{e.UserState}    downloaded {e.BytesReceived} of {e.TotalBytesToReceive} bytes. {e.ProgressPercentage} % complete...";
+            ConsoleEx.WriteLine(progress);
 
             MyControls.SideBar.DownloadProgress.Value = e.ProgressPercentage;
 
@@ -175,14 +183,6 @@ namespace Contact_Tracking.Custom_Controls
 
         private void SideBar_Create_Click(object sender, EventArgs e)
         {
-            if (this.Width >= this.MaximumSize.Width)
-            {
-                sidebarExpand = true;
-                SideBarTimer.Start();
-            }
-            var tracking = this.ParentForm.Controls["tracking"];
-            tracking.Hide();
-
             var personCard = MyControls.PersonTab;
 
             if (personCard.person == null)
@@ -192,35 +192,13 @@ namespace Contact_Tracking.Custom_Controls
                 personCard.person = person;
                 person.LoadCard();
             }
-            personCard.Show();
 
-            var settings = this.ParentForm.Controls["settings"];
-            settings.Hide();
-
-            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
-            statistics_Tab.Hide();
+            SwitchTab(SideBar_Create);
         }
 
         private void Stats_Button_Click(object sender, EventArgs e)
         {
-            if (this.Width >= this.MaximumSize.Width)
-            {
-                sidebarExpand = true;
-                SideBarTimer.Start();
-            }
-
-            var tracking = this.ParentForm.Controls["tracking"];
-            tracking.Hide();
-
-            var personCard = this.ParentForm.Controls["personCard"];
-            personCard.Hide();
-
-            var settings = this.ParentForm.Controls["settings"];
-            settings.Hide();
-
-            var statistics_Tab = this.ParentForm.Controls["statistics_Tab"];
-            statistics_Tab.Show();
-
+            SwitchTab(Stats_Button);
         }
     }
 }

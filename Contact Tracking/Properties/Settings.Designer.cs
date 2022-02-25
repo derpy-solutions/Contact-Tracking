@@ -26,18 +26,6 @@ namespace Contact_Tracking.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ServerPath {
-            get {
-                return ((string)(this["ServerPath"]));
-            }
-            set {
-                this["ServerPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("F:\\derpy_Developments\\Contact Tracking\\Data\\")]
         public string DataPath {
             get {
                 return ((string)(this["DataPath"]));
@@ -73,31 +61,6 @@ namespace Contact_Tracking.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-Xmx4G @libraries/net/minecraftforge/forge/1.18.1-39.0.64/win_args.txt %* --nogui" +
-            "")]
-        public string cmdCommand {
-            get {
-                return ((string)(this["cmdCommand"]));
-            }
-            set {
-                this["cmdCommand"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\Java\\jdk-17.0.2\\bin\\java.exe")]
-        public string JavaPath {
-            get {
-                return ((string)(this["JavaPath"]));
-            }
-            set {
-                this["JavaPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool CheckForUpdates {
             get {
@@ -110,7 +73,7 @@ namespace Contact_Tracking.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("EN")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
         public string Language {
             get {
                 return ((string)(this["Language"]));
@@ -134,31 +97,7 @@ namespace Contact_Tracking.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MyPublicSecretKey")]
-        public string PublicKey {
-            get {
-                return ((string)(this["PublicKey"]));
-            }
-            set {
-                this["PublicKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MySecretKey")]
-        public string PrivateKey {
-            get {
-                return ((string)(this["PrivateKey"]));
-            }
-            set {
-                this["PrivateKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("b14ca5898a4e4133bbce2ea2315a1916")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SecurityKey {
             get {
                 return ((string)(this["SecurityKey"]));
@@ -182,13 +121,229 @@ namespace Contact_Tracking.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("abcd")]
-        public string MySetting {
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        public string Password {
             get {
-                return ((string)(this["MySetting"]));
+                return ((string)(this["Password"]));
             }
             set {
-                this["MySetting"] = value;
+                this["Password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RequirePassword {
+            get {
+                return ((bool)(this["RequirePassword"]));
+            }
+            set {
+                this["RequirePassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaveStats {
+            get {
+                return ((bool)(this["SaveStats"]));
+            }
+            set {
+                this["SaveStats"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int Stats_DaysToSave {
+            get {
+                return ((int)(this["Stats_DaysToSave"]));
+            }
+            set {
+                this["Stats_DaysToSave"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int Stats_DaysToShow {
+            get {
+                return ((int)(this["Stats_DaysToShow"]));
+            }
+            set {
+                this["Stats_DaysToShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowBadge {
+            get {
+                return ((bool)(this["ShowBadge"]));
+            }
+            set {
+                this["ShowBadge"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
+        public int Corona_VaccinatedDuration {
+            get {
+                return ((int)(this["Corona_VaccinatedDuration"]));
+            }
+            set {
+                this["Corona_VaccinatedDuration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public int Corona_TestedDuration {
+            get {
+                return ((int)(this["Corona_TestedDuration"]));
+            }
+            set {
+                this["Corona_TestedDuration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        public int Corona_MinAgeTest {
+            get {
+                return ((int)(this["Corona_MinAgeTest"]));
+            }
+            set {
+                this["Corona_MinAgeTest"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaveVisits {
+            get {
+                return ((bool)(this["SaveVisits"]));
+            }
+            set {
+                this["SaveVisits"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("28")]
+        public int VisitDaysSave {
+            get {
+                return ((int)(this["VisitDaysSave"]));
+            }
+            set {
+                this["VisitDaysSave"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string InstalledVersion {
+            get {
+                return ((string)(this["InstalledVersion"]));
+            }
+            set {
+                this["InstalledVersion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SecurityIV {
+            get {
+                return ((string)(this["SecurityIV"]));
+            }
+            set {
+                this["SecurityIV"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool FlipCamera {
+            get {
+                return ((bool)(this["FlipCamera"]));
+            }
+            set {
+                this["FlipCamera"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("28")]
+        public int PersonIdleDays {
+            get {
+                return ((int)(this["PersonIdleDays"]));
+            }
+            set {
+                this["PersonIdleDays"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SplitLog {
+            get {
+                return ((bool)(this["SplitLog"]));
+            }
+            set {
+                this["SplitLog"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("18:30")]
+        public string SplitLogAt {
+            get {
+                return ((string)(this["SplitLogAt"]));
+            }
+            set {
+                this["SplitLogAt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SplitStats {
+            get {
+                return ((bool)(this["SplitStats"]));
+            }
+            set {
+                this["SplitStats"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("18:30")]
+        public string SplitStatsAt {
+            get {
+                return ((string)(this["SplitStatsAt"]));
+            }
+            set {
+                this["SplitStatsAt"] = value;
             }
         }
     }
