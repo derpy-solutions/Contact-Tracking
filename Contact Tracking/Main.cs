@@ -58,6 +58,12 @@ namespace Contact_Tracking
 
         public void EnsureSettings()
         {
+            if (Properties.Settings.Default.UpgradeRequired)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.Save();
+            }
+
             if (Properties.Settings.Default.DataPath == null || Properties.Settings.Default.DataPath == "")
             {
                 Properties.Settings.Default.DataPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Contact Tracking";
