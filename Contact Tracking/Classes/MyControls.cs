@@ -28,15 +28,41 @@ namespace Contact_Tracking
     
     public class Language
     {
-       public static List<Action> Actions = new List<Action>();
-        public static void Load()
+        public class Entry
         {
+            public string name;
+            public bool initialized;
+            public Action action;
+        }
+       public static List<Entry> Actions = new List<Entry>();
+        public static void Load()
+        { 
+            ConsoleEx.WriteLine("Switching to Language pack: '" + Properties.Settings.Default.Language + "'");
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
 
-            foreach (Action action in Actions)
+            ConsoleEx.WriteLine(Thread.CurrentThread.CurrentUICulture.Name, ConsoleColor.Red);
+            foreach (Entry entry in Actions)
             {
-                action();
+                if (entry.initialized)
+                {
+                    ConsoleEx.WriteLine("Switching Language in control: " + entry.name);
+                    entry.action();
+                }
+                else
+                {
+                    ConsoleEx.WriteLine(entry.name + " is not initialized yet!");
+                }
             }
+        }
+        public static void LoadOG()
+        { 
+            ConsoleEx.WriteLine("Switching to Language pack: '" + Properties.Settings.Default.Language + "'");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+
+            //foreach (Action action in Actions)
+            //{
+            //    action();
+            //}
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Contact_Tracking.Custom_Controls
         public TrackingTab()
         {
             InitializeComponent();
-            Language.Actions.Add(LoadLanguage);
+            Language.Actions.Add(new Language.Entry() { action = LoadLanguage, name = "Tracking Tab", initialized = true });
         }
 
         public void LoadLanguage()

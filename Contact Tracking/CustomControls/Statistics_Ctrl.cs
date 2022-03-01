@@ -17,7 +17,7 @@ namespace Contact_Tracking.Custom_Controls
         {
             InitializeComponent();
 
-            Language.Actions.Add(LoadLanguage);
+            Language.Actions.Add(new Language.Entry() { action = LoadLanguage, name = "Statistics Ctrl", initialized = true });
         }
 
         public void LoadLanguage()

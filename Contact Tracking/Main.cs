@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Reflection;
 using System.Drawing;
+using System.Resources;
 using System.Globalization;
 using System.Security.Cryptography;
 
@@ -21,7 +22,7 @@ namespace Contact_Tracking
         public static bool initialized;
         public Main()
         {
-            EnsureSettings();
+           EnsureSettings();
 
             Directory.CreateDirectory(Properties.Settings.Default.DataPath);
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
@@ -48,6 +49,7 @@ namespace Contact_Tracking
 
             initialized = true;
 
+            ConsoleEx.WriteLine("Loading Language ...");
             Language.Load();
         }
 
@@ -61,6 +63,7 @@ namespace Contact_Tracking
             if (Properties.Settings.Default.UpgradeRequired)
             {
                 Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.UpgradeRequired = false;
                 Properties.Settings.Default.Save();
             }
 

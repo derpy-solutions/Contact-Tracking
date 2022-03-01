@@ -47,13 +47,15 @@ namespace Contact_Tracking.Custom_Controls
             StatDays_Num.Value = Properties.Settings.Default.Stats_DaysToSave;
             ShowStatDays_Num.Value = Properties.Settings.Default.Stats_DaysToShow;
             DataPath_TxtBx.Text = Properties.Settings.Default.DataPath;
+            PeopleSaveDays_num.Value =Properties.Settings.Default.PersonIdleDays;
 
             SplitLog_Toggle.setChecked(Properties.Settings.Default.SplitLog);
             SplitLogAt_Picker.Value = DateTime.Parse("01.01.1900 " + Properties.Settings.Default.SplitLogAt);
 
             SplitStats_Toggle.setChecked(Properties.Settings.Default.SplitStats);
             SplitStatsAt_Picker.Value = DateTime.Parse("01.01.1900 " + Properties.Settings.Default.SplitStatsAt);
-            Language.Actions.Add(LoadLanguage);
+
+            Language.Actions.Add(new Language.Entry() { action = LoadLanguage, name = "Settings", initialized = true});
         }
 
         public void LoadLanguage()
@@ -103,6 +105,8 @@ namespace Contact_Tracking.Custom_Controls
             Label_Corona_VaccinatedDuration.Text = Properties.strings.VaccinatedDuration;
             Label_Corona_TestedDuration.Text = Properties.strings.TestedDuration;
             Label_NoTestAge.Text = Properties.strings.MinAge;
+
+            ResetSettings_Btn.Text = Properties.strings.ResetSettings;
         }
 
         private void Language_Combo_SelectedIndexChanged(object sender, EventArgs e)

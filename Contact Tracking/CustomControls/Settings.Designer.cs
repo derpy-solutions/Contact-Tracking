@@ -102,6 +102,7 @@ namespace Contact_Tracking.Custom_Controls
             this.panel5 = new System.Windows.Forms.Panel();
             this.Label_DataPath = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ResetSettings_Btn = new System.Windows.Forms.Button();
             this.DataPath_TxtBx = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -110,7 +111,6 @@ namespace Contact_Tracking.Custom_Controls
             this.PeopleWipe_Btn = new System.Windows.Forms.Button();
             this.Label_PersonalDataDescription = new System.Windows.Forms.Label();
             this.Label_PersonalData = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1.SuspendLayout();
@@ -1081,7 +1081,7 @@ namespace Contact_Tracking.Custom_Controls
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.Label_DataPath);
             this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.ResetSettings_Btn);
             this.panel5.Controls.Add(this.DataPath_TxtBx);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel4);
@@ -1111,6 +1111,23 @@ namespace Contact_Tracking.Custom_Controls
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ResetSettings_Btn
+            // 
+            this.ResetSettings_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResetSettings_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.ResetSettings_Btn.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.ResetSettings_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResetSettings_Btn.Image = global::Contact_Tracking.Properties.Resources.reset;
+            this.ResetSettings_Btn.Location = new System.Drawing.Point(5, 263);
+            this.ResetSettings_Btn.Name = "ResetSettings_Btn";
+            this.ResetSettings_Btn.Size = new System.Drawing.Size(437, 32);
+            this.ResetSettings_Btn.TabIndex = 10;
+            this.ResetSettings_Btn.Text = "  Reset Settings";
+            this.ResetSettings_Btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ResetSettings_Btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ResetSettings_Btn.UseVisualStyleBackColor = false;
+            this.ResetSettings_Btn.Click += new System.EventHandler(this.button2_Click);
             // 
             // DataPath_TxtBx
             // 
@@ -1219,23 +1236,6 @@ namespace Contact_Tracking.Custom_Controls
             this.Label_PersonalData.Size = new System.Drawing.Size(153, 24);
             this.Label_PersonalData.TabIndex = 4;
             this.Label_PersonalData.Text = "Personal Data";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::Contact_Tracking.Properties.Resources.reset;
-            this.button2.Location = new System.Drawing.Point(5, 263);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(437, 32);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "  Reset Settings";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Settings
             // 
@@ -1354,7 +1354,7 @@ namespace Contact_Tracking.Custom_Controls
         private System.Windows.Forms.TextBox DataPath_TxtBx;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ResetSettings_Btn;
         public CustomControls.IconCheckbox FlipCamera_Toggle;
         public System.Windows.Forms.Label FlipCamera_Label;
         private System.Windows.Forms.Panel panel6;

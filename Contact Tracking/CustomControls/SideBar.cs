@@ -18,7 +18,7 @@ namespace Contact_Tracking.Custom_Controls
             InitializeComponent();
 
             Inits.Voids.Add(Init);
-            Language.Actions.Add(LoadLanguage);
+            Language.Actions.Add(new Language.Entry() { action = LoadLanguage, name = "SideBar", initialized = true });
 
 
         }

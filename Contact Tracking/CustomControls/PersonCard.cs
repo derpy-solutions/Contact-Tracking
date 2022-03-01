@@ -27,7 +27,7 @@ namespace Contact_Tracking.Custom_Controls
         public PersonCard()
         {
             InitializeComponent();
-            Language.Actions.Add(LoadLanguage);
+            Language.Actions.Add(new Language.Entry() { action = LoadLanguage, name = "PersonCard", initialized = true });
 
             Tested_Picker.Value = DateTime.Parse("01.01.1900");
             Vaccinated_Picker.Value = DateTime.Parse("01.01.1900");
@@ -228,6 +228,15 @@ namespace Contact_Tracking.Custom_Controls
                         temp.Gender = "divers";
                         break;
                     case "weiblich":
+                        temp.Gender = "female";
+                        break;
+                    case "male":
+                        temp.Gender = "male";
+                        break;
+                    case "queer":
+                        temp.Gender = "divers";
+                        break;
+                    case "female":
                         temp.Gender = "female";
                         break;
                 }

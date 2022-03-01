@@ -13,7 +13,7 @@ namespace Contact_Tracking.Custom_Controls
         public RightClick_Menu()
         {
             InitializeComponent();
-            Language.Actions.Add(LoadLanguage);
+            Language.Actions.Add(new Language.Entry() { action = LoadLanguage, name = "Right Click Menu", initialized = true });
         }
         public void LoadLanguage()
         {

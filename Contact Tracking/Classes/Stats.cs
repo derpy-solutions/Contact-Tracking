@@ -90,9 +90,16 @@ namespace Contact_Tracking
         public Stats.Age_6_13 Age_6_13 = new Stats.Age_6_13();
         public Stats.Age_14_17 Age_14_17 = new Stats.Age_14_17();
         public Stats.Age_18_Plus Age_18_Plus = new Stats.Age_18_Plus();
-        public void Add() 
+        public void Add(bool addentry = true) 
         {
             G.Stats.Add(this);
+            if (addentry)
+            {
+                AddEntry();
+            }
+        }
+        public void AddEntry() 
+        {
             MyControls.Stats.AddEntry(this);
         }
         public void Refresh() 

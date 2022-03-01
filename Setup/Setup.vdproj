@@ -87,6 +87,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1D485E421F664EA1B384E182BF9B9F91"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1FC9113C66B404D027BDAA99194C7CFC"
         "OwnerKey" = "8:_2C0D6470147A4C4895EBF1CD0427D33E"
         "MsmSig" = "8:_UNDEFINED"
@@ -527,6 +533,12 @@
         {
         "MsmKey" = "8:_8A8679AF259F769D613D1E911BE5A690"
         "OwnerKey" = "8:_2C0D6470147A4C4895EBF1CD0427D33E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8B71E2A4010F4BAF8D9AD4249765D67C"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1007,6 +1019,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2C0D6470147A4C4895EBF1CD0427D33E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8B71E2A4010F4BAF8D9AD4249765D67C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1D485E421F664EA1B384E182BF9B9F91"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1790,6 +1814,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -2189,6 +2221,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1D485E421F664EA1B384E182BF9B9F91"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Contact Tracking.resources, Version=0.1.2.0, Culture=en, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1D485E421F664EA1B384E182BF9B9F91"
+                    {
+                    "Name" = "8:Contact Tracking.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Contact Tracking\\bin\\Debug\\en\\Contact Tracking.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A75B6B578FE141EF8D2E791F36A6D55A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1FC9113C66B404D027BDAA99194C7CFC"
@@ -4089,6 +4152,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8B71E2A4010F4BAF8D9AD4249765D67C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Contact Tracking.resources, Version=0.1.2.0, Culture=de, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8B71E2A4010F4BAF8D9AD4249765D67C"
+                    {
+                    "Name" = "8:Contact Tracking.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Contact Tracking\\bin\\Debug\\de\\Contact Tracking.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E3FD571D2C6140A7A00C7DFEDCD1BCB2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8C7D3718BC6876CF4948F44FF9D30DD5"
@@ -6193,6 +6287,28 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A75B6B578FE141EF8D2E791F36A6D55A"
+                    {
+                    "Name" = "8:en"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_D66C7A91BBBF4E40824CB5FF3AB0E19A"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E3FD571D2C6140A7A00C7DFEDCD1BCB2"
+                    {
+                    "Name" = "8:de"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_627B3C060913405291BE857BEF492741"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_606FA64369F24D55AD39C946CFF87F1E"
@@ -6245,7 +6361,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Contact Tracking"
         "ProductCode" = "8:{C7EF0551-2CAA-4A6B-9AFB-6784DED7A8AC}"
-        "PackageCode" = "8:{1E029418-78F1-4C4A-89DE-FEC96393E545}"
+        "PackageCode" = "8:{FA7C3633-95F0-4D0D-9A06-B1FB8F3305E0}"
         "UpgradeCode" = "8:{41788895-D234-427A-8D4C-D7CC726643D3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

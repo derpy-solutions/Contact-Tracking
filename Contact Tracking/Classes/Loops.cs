@@ -18,6 +18,7 @@ namespace Contact_Tracking
         Thread loopThread;
         static string lastLogName = SQL.LogName();
         static string lastStatName = SQL.StatsName();
+        static bool lastInternetState;
 
         public class Loop
         {
@@ -44,6 +45,11 @@ namespace Contact_Tracking
                     if (GitHub.CheckForUpdates())
                     {
                         updatesFound = true;
+                    } 
+                    else if (GitHub.hasInternet && lastInternetState != GitHub.hasInternet)
+                    {
+                        lastInternetState = GitHub.hasInternet;
+                        updatesFound = true;
                     }
 
                     bool logSplit = false;
@@ -58,8 +64,8 @@ namespace Contact_Tracking
                             logSplit = true;
                         }
                     }
-
-                    if (Properties.Settings.Default.SplitLog)
+                    
+                    if (Properties.Settings.Default.SplitStats)
                     {
                         string statName = SQL.StatsName();
                         if (statName != lastStatName)

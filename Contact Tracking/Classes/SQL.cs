@@ -175,11 +175,11 @@ namespace Contact_Tracking
         }
         public static string StatsName()
         {
-            string log_num = "1"; 
+            string log_num = "1";
             
-            if (Properties.Settings.Default.SplitLog)
+            if (Properties.Settings.Default.SplitStats)
             {
-                DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("d") + " " + Properties.Settings.Default.SplitLogAt);
+                DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("d") + " " + Properties.Settings.Default.SplitStatsAt);
 
                 if (DateTime.Now >= dateTime)
                 {
@@ -267,6 +267,7 @@ namespace Contact_Tracking
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand("select * from Statistic", connection);
                 SQLiteDataReader reader = cmd.ExecuteReader();
+                List<int> wipeIDs = new List<int>();
 
                 ConsoleEx.WriteLine("Read Stats ...");
                 while (reader.Read())
@@ -278,39 +279,66 @@ namespace Contact_Tracking
                     stat._Name = reader["Name"].ToString();
                     stat.Date = DateTime.Parse(reader["Date"].ToString());
 
-                    stat.Age_6_13.divers = int.Parse(reader["Age_6_13_divers"].ToString());
-                    stat.Age_6_13.male = int.Parse(reader["Age_6_13_male"].ToString());
-                    stat.Age_6_13.female = int.Parse(reader["Age_6_13_female"].ToString());
-                    stat.Age_6_13.migration_background = int.Parse(reader["Age_6_13_migration_background"].ToString());
-
-                    stat.Age_14_17.divers = int.Parse(reader["Age_14_17_divers"].ToString());
-                    stat.Age_14_17.male = int.Parse(reader["Age_14_17_male"].ToString());
-                    stat.Age_14_17.female = int.Parse(reader["Age_14_17_female"].ToString());
-                    stat.Age_14_17.migration_background = int.Parse(reader["Age_14_17_migration_background"].ToString());
-
-                    stat.Age_18_Plus.divers = int.Parse(reader["Age_18_Plus_divers"].ToString());
-                    stat.Age_18_Plus.male = int.Parse(reader["Age_18_Plus_male"].ToString());
-                    stat.Age_18_Plus.female = int.Parse(reader["Age_18_Plus_female"].ToString());
-                    stat.Age_18_Plus.migration_background = int.Parse(reader["Age_18_Plus_migration_background"].ToString());
-
-                    string ids = reader["People"].ToString();
-
-                    string[] subs = ids.Split('|');
-
-                    foreach (var sub in subs)
+                    if (DateTime.Now.Subtract(stat.Date).TotalDays < Properties.Settings.Default.Stats_DaysToSave)
                     {
-                        stat.People.Add(int.Parse(sub));
-                    }
+                        stat.Age_6_13.divers = int.Parse(reader["Age_6_13_divers"].ToString());
+                        stat.Age_6_13.male = int.Parse(reader["Age_6_13_male"].ToString());
+                        stat.Age_6_13.female = int.Parse(reader["Age_6_13_female"].ToString());
+                        stat.Age_6_13.migration_background = int.Parse(reader["Age_6_13_migration_background"].ToString());
 
-                    stat.Add();
+                        stat.Age_14_17.divers = int.Parse(reader["Age_14_17_divers"].ToString());
+                        stat.Age_14_17.male = int.Parse(reader["Age_14_17_male"].ToString());
+                        stat.Age_14_17.female = int.Parse(reader["Age_14_17_female"].ToString());
+                        stat.Age_14_17.migration_background = int.Parse(reader["Age_14_17_migration_background"].ToString());
 
-                    if (stat.Name == StatsName())
+                        stat.Age_18_Plus.divers = int.Parse(reader["Age_18_Plus_divers"].ToString());
+                        stat.Age_18_Plus.male = int.Parse(reader["Age_18_Plus_male"].ToString());
+                        stat.Age_18_Plus.female = int.Parse(reader["Age_18_Plus_female"].ToString());
+                        stat.Age_18_Plus.migration_background = int.Parse(reader["Age_18_Plus_migration_background"].ToString());
+
+                        string ids = reader["People"].ToString();
+
+                        string[] subs = ids.Split('|');
+
+                        foreach (var sub in subs)
+                        {
+                            stat.People.Add(int.Parse(sub));
+                        }
+
+                        stat.Add(false);
+
+                        if (stat.Name == StatsName())
+                        {
+                            ConsoleEx.WriteLine("Found Current Stat. Set to Current. ID: " + stat.ID);
+                            G.CurrentStat = stat;
+                        }
+                    } 
+                    else
                     {
-                        ConsoleEx.WriteLine("Found Current Stat. Set to Current. ID: " + stat.ID);
-                        G.CurrentStat = stat;
+                        wipeIDs.Add(stat.ID);
                     }
                 }
                 ConsoleEx.WriteLine("Stats Read!");
+
+                foreach (int id in wipeIDs)
+                {
+                    ConsoleEx.WriteLine("Delete Statistic with ID: " + id);
+                    string deleteperson = $"delete from Statistic where id={id};";
+                    SQLiteCommand command = new SQLiteCommand(deleteperson, connection);
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            for (int i = G.Stats.Count -1; i > 0; i--)
+            {
+                if (MyControls.Stats.Controls.Count <= Properties.Settings.Default.Stats_DaysToShow)
+                {
+                    G.Stats[i].AddEntry();
+                }
+                else
+                {
+                    break;
+                }
             }
         }
         public static void WipePeople()

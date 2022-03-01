@@ -244,6 +244,7 @@ namespace Contact_Tracking
          }
         public bool AddStat()
         {
+            ConsoleEx.WriteLine("Checking for stat data from '" + FirstName + "'");
             if (G.CurrentStat == null)
             {
                 G.CurrentStat = new Stat();
@@ -477,6 +478,15 @@ namespace Contact_Tracking
                             pC.GenderCombo.SelectedItem = Properties.strings.divers;
                             break;
                         case "female":
+                            pC.GenderCombo.SelectedItem = Properties.strings.female;
+                            break;
+                        case "männlich":
+                            pC.GenderCombo.SelectedItem = Properties.strings.male;
+                            break;
+                        case "queer":
+                            pC.GenderCombo.SelectedItem = Properties.strings.divers;
+                            break;
+                        case "weiblich":
                             pC.GenderCombo.SelectedItem = Properties.strings.female;
                             break;
                     }
